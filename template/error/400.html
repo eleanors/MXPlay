@@ -1,0 +1,48 @@
+<script language="javascript">
+        function reload() {
+            document.location.reload();
+        }
+        function showtime() {
+            var d = new Date();
+            document.write((d.getMonth() + 1) + "月" + d.getDate() + "日 " + d.getHours() + "点" + d.getMinutes() + "分");
+        }
+
+    </script>
+
+    <style>
+        #msg-box .title a {
+            color: #9ac200;
+            text-decoration: underline;
+        }
+
+        #msg-box {
+            font-size: 0.9em;
+            color: #9ac200;
+            text-align: center;
+            padding: 100px 0;
+            background: #fff;
+            background: url("errorbg.jpg") no-repeat center center;
+        }
+
+        #msg-box .xlogo {
+            margin-bottom: 50px;
+            padding-bottom: 10px;
+
+        }
+
+        #msg-box .title {
+            font-weight: 400;
+            font-size: 20px;
+            margin: 0px 0px 30px;
+            line-height: 200%;
+        }
+    </style>
+
+<div id="msg-box">
+    <div class="xlogo">
+        <a href="#">
+            <img border="0" src="400.png" width="300"></a></div>
+    <div class="title">
+        欢迎浏览我们的网站，您访问的页面发生未知错误。
+    </div>
+</div>

@@ -1,0 +1,428 @@
+<link rel="stylesheet" type="text/css" href="../assets/css/module.css" />
+<link rel="stylesheet" type="text/css" href="../libs/jquery/jquery-ui.min.css" />
+
+<div class="panel" id="module">
+
+    <div class="panel" style="width:100%">
+        <div class="panel-header">
+            <table>
+                <tr>
+                    <th><div class="topselect"></div><a href="../module/module">{{t "cadModule.modAdded"}}</a></th>
+                    <th><div class="topselect"></div><a href="../module/module-store">{{t "cadModule.modLib"}}</a></th>
+                    <th class="active"><div class="topselect"></div><a href="../module/module-custom">{{t "cadModule.cusMod"}}</a></th>
+                    <th><div class="topselect"></div><a href="../module/module-auth">{{t "cadModule.authRec"}}</a></th>
+                    <th><div class="topselect"></div><a href="../module/module-loader">{{t "cadModule.loader"}}</a></th>
+                </tr>
+            </table>
+            
+        </div>
+        <form action="" id="addCustomModule-form" novalidate="novalidate" class="active">
+            <div class="row clearfix">
+                <h4 class="panel-title pull-right panel-title-module">
+                    <a id="addCustomModule-toggle-btn" class="accordion-toggle a collapsed" data-toggle
+="collapse" data-parent="" href="">
+                    {{t "cadModule.upCustomMod"}}&nbsp;&nbsp;
+                        <span class="arr-b-ver">
+                            <i class="icon-sort-down"></i>
+                            <i class="icon-sort-up"></i>
+                        </span>
+                    </a>
+                </h4>
+            </div>
+            <div id="addCustomModule-form-form" class="row clearfix">
+                <div class="col-md-4">
+                    <div class="row clearfix" style="margin-bottom:25px;">
+                        <label class="form-left-label">{{t "cadModule.modName"}}</label>
+                        <div class="row content-innerBox notice-innerBox" style="width:220px;">
+                        <input id="addModule-title" name="mdName" type="text" class="form-control no-border-text">
+                            <label class="text-count"><span id="mod-name">0</span> / 30</label>
+                        </div>
+                        <div id="md-name-err" class="row">
+                        </div>
+                    </div>
+                    <div class="row clearfix" style="margin-bottom:10px;">
+                        <label class="form-left-label">{{t "cadCode.selectFile"}}</label>
+                        <div class="row clearfix" style="height:28px;">
+                            <div id="uploadModule-i" class="progress">
+                                <div style="width:0%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="icon-apple progress-bar">
+                                    
+                                </div>
+                                <span class="show-text" id="up-mod-ios">
+                                    <em>{{t "cadModule.clickToUp"}}</em>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix" style="margin-bottom:30px;">
+                        <label class="form-left-label"></label>
+                        <div class="row clearfix">
+                            <div id="uploadModule-a" class="progress">
+                                <div style="width: 0%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="icon-android progress-bar">
+                                    
+                                </div>
+                                <span class="show-text" id="up-mod-and">
+                                    <em>{{t "cadModule.clickToUp"}}</em>
+                                </span>
+                            </div>
+                            <div>
+                                <input type="text" style="display:none" name="iosPkgName">
+                                <input type="text" style="display:none" name="andPkgName">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div id="pkg-err" class="row clearfix">
+                    </div>
+                    <!-- <div class="row clearfix" style="height:30px;position:relative;">
+                        <label class="form-left-label">版本设置</label>
+                        <div class="verson-group verson-group-add">
+                            <input type="text" name="addVer1" class="verson-num num1" maxlength="2">
+
+                            <span class="verson-dot">.</span>
+                            <input type="text" name="addVer2" class="verson-num num2" maxlength="2">
+
+                            <span class="verson-dot">.</span>
+                            <input type="text" name="addVer3" class="verson-num num3" maxlength="2">
+
+                        </div>
+                    </div> -->
+                    <!-- <div id="mod-ver-err" class="row clearfix">
+                    </div> -->
+                </div>
+                <div class="col-md-8">
+                    <div class="col-md-8">
+                        <div class="row clearfix" style="margin-bottom:20px;">
+                            <label class="form-left-label">{{t "cadModule.modOverview"}}</label>
+                            <div class="row content-innerBox addModule-innerBox" style="width:342px;"
+>
+                                <input id="addModule-summary" name="mdInfo" type="text" class="form-control
+ no-border-text">
+                                <label class="text-count"><span id="mod-sum">0</span> / 30</label>
+                            </div>
+                        </div>
+                        <div class="row clearfix" style="margin-bottom:30px;">
+                            <!-- <label class="form-left-label">接口说明</label>
+                            <textarea id="addModule-detail" class=""></textarea> -->
+                            <label class="form-left-label">{{t "cadModule.versionSet"}}</label>
+                            <div class="verson-group verson-group-add">
+                                <input type="text" name="addVer1" class="verson-num num1" maxlength="2">
+                                <span class="verson-dot">.</span>
+                                <input type="text" name="addVer2" class="verson-num num2" maxlength="2">
+                                <span class="verson-dot">.</span>
+                                <input type="text" name="addVer3" class="verson-num num3" maxlength="2">
+                            </div>
+                        </div>
+                        <div id="mod-ver-err" class="row clearfix" style="margin-right: 122px;">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row addModule-btns">
+                            <input type="submit" id="btn-module-save" class="btn btn-blue btn-block" value="{{t 'common.save'}}">
+                            <input type="button" id="btn-module-cancel" class="btn btn-white btn-block" value="{{t 'common.cancel'}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- 2014-12-10 新增 end -->
+    <!-- 2014-12-11 模块部分 -->
+    <div class="module-box custom-module clearfix">
+    {{#if body}}
+        {{#each body}}
+        <div class="module-container clearfix"  mdid="{{mdId}}" >
+            <div class="module-container-inner">
+                <div class="img-box">
+                    <img class="img" src="../assets/images/default.jpg" alt="">
+                    <div class="img-shadow"></div>
+                </div>
+                <div class="module-container-right">
+                    <div class="module-container-right-top">
+                        <div class="module-container-name-shadow"></div>
+                        <div class="module-container-name-group clearfix">
+                            {{#if bind}}
+                            
+                            <span class="status-group added active">{{t "cadModule.added"}}</span>
+                            <a href="javascript:void(0)" mdid="{{mdId}}" class="status-group add"></a>
+                            <a href="javascript:void(0)" mdid="{{mdId}}" class="status-group edit active"></a>
+                            {{else}}
+                            <span class="status-group added">{{t "cadModule.added"}}</span>
+                            <a href="javascript:void(0)" mdid="{{mdId}}" class="status-group add active"></a>
+                            <a href="javascript:void(0)" mdid="{{mdId}}" class="status-group edit active"></a>
+                            {{/if}}
+                            <span class="module-name" md-name="{{mdName}}" md-ver="{{mdVer}}" md-des="{{mdDescription}}" md-info="{{mdInfo}}" md-platform="{{mdPlatform}}">{{mdName}}</span>
+                        </div>
+                        <div class="module-version">
+                            <span>v</span>
+                            <span class="version-num">
+                                {{mdVer}}
+                            </span>
+                        </div>
+                        <p class="module-brief">
+                            {{#if ../i18nlng}}
+                                {{enInfo}}
+                            {{else}}
+                                {{mdInfo}}
+                            {{/if}}
+                        </p>
+                    </div>
+                    <div class="module-container-right-bottom">
+                        <div class="platform-group">
+                            {{#eq mdPlatform 2}}
+                            <i class="icon-android active"></i>
+                            <i class="icon-apple active"></i>
+                            {{/eq}}
+                            {{#eq mdPlatform 0}}
+                            <i class="icon-android"></i>
+                            <i class="icon-apple active"></i>
+                            {{/eq}}
+                            {{#eq mdPlatform 1}}
+                            <i class="icon-android active"></i>
+                            <i class="icon-apple"></i>
+                            {{/eq}}
+                        </div>
+                        <div class="price-group">
+                            <a href="javascript:void(0)" mdid="{{mdId}}" class="btn-del">{{t "cadCode.delete"}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        {{/each}}
+        {{else}}
+        <div class="no-data panel" style="margin-right: 1%;">
+            <div class="panel-body panel-body-custom">
+                <div class="tiptitle">
+                    <i class="icon-notice"></i>
+                    {{t "cadModule.note2_7"}}
+                </div>
+                <label class="tip-notice">{{t "cadModule.note2_8"}}</label>
+                <button class="btn btn-default btn-width">{{t "cadModule.note2_6"}}</button>
+            </div>     
+        </div>
+    {{/if}}
+    </div>
+    <!-- 2014-12-11 模块部分 end -->
+    <!-- 2014-12-13 自定义模块 -->
+    <script id="mod-template" type="text/x-handlebars-template">
+        \{{#each body}}
+        <div class="module-container clearfix" mdid="\{{mdId}}" >
+            <div class="module-container-inner">
+                <div class="img-box">
+                    <img class="img" src="/img/module_default.jpg" alt="">
+                    <div class="img-shadow"></div>
+                </div>
+                <div class="module-container-right">
+                    <div class="module-container-right-top">
+                        <div class="module-container-name-shadow"></div>
+                        <div class="module-container-name-group clearfix">
+                            \{{#if bind}}
+                            <span class="status-group added active">{{t "cadModule.added"}}</span>
+                            <a href="javascript:void(0)" mdid="\{{mdId}}" class="status-group add"></a>
+                            <a href="javascript:void(0)" mdid="\{{mdId}}" class="status-group edit active"></a>
+                            \{{else}}
+                            <span class="status-group added">{{t "cadModule.added"}}</span>
+                            <a href="javascript:void(0)" mdid="\{{mdId}}" class="status-group add active"></a>
+                            <a href="javascript:void(0)" mdid="\{{mdId}}" class="status-group edit active"></a>
+                            \{{/if}}
+                            <span class="module-name" md-name="\{{mdName}}" md-ver="\{{mdVer}}" md-des="\{{mdDescription}}" md-info="\{{mdInfo}}" md-platform="\{{mdPlatform}}">\{{mdName}}</span>
+                        </div>
+                        <div class="module-version">
+                            <span>v</span>
+                            <span class="version-num">
+                                \{{mdVer}}
+                            </span>
+                        </div>
+                        <p class="module-brief">
+                            \{{#if ../i18nlng}}
+                                \{{enInfo}}
+                            \{{else}}
+                                \{{mdInfo}}
+                            \{{/if}}
+                        </p>
+                    </div>
+                    <div class="module-container-right-bottom">
+                        <div class="platform-group">
+                            \{{#eq mdPlatform 2}}
+                            <i class="icon-android active"></i>
+                            <i class="icon-apple active"></i>
+                            \{{/eq}}
+                            \{{#eq mdPlatform 0}}
+                            <i class="icon-android"></i>
+                            <i class="icon-apple active"></i>
+                            \{{/eq}}
+                            \{{#eq mdPlatform 1}}
+                            <i class="icon-android active"></i>
+                            <i class="icon-apple"></i>
+                            \{{/eq}}
+                        </div>
+                        <div class="price-group">
+                            <a href="javascript:void(0)" class="btn-del">{{t "cadCode.delete"}}</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        \{{/each}}
+    </script>
+    <!-- 2014-12-13 自定义模块 end -->
+
+    <!-- 编辑模块表单弹框 -->
+    <form action="" id="editCustomModule-form" class="clearfix">
+        <div class="tri-bottom"></div>
+        <div class="tri-bottom-in"></div>
+        <div class="row clearfix" style="margin:22px 0 18px 0;">
+            <label class="form-left-label">{{t "cadModule.modName"}}</label>
+            <div class="row content-innerBox notice-innerBox" style="width:220px;">
+                <input id="edit-mod-title" name="mdName" type="text" class="form-control no-border-text">
+                <label class="text-count"><span id="edit-mod-name">0</span> / 30</label>
+            </div>
+            <div class="row md-name-err">
+            </div>
+        </div>
+        <div class="row clearfix" style="margin-bottom:10px;">
+            <label class="form-left-label">{{t "cadCode.selectFile"}}</label>
+            <div class="row clearfix" style="height:28px;">
+                <div id="uploadModule-i" class="progress">
+                    <div style="width: 0%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="icon-apple progress-bar">
+                        
+                    </div>
+                    <span class="show-text" id="edit-mod-ios">
+                        <em>
+                            {{t "cadModule.clickToUp"}}
+                        </em>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix" style="margin-bottom:30px;">
+            <label class="form-left-label"></label>
+            <div class="row clearfix">
+                <div id="uploadModule-a" class="progress">
+                    <div style="width: 0%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="icon-android progress-bar">
+                        
+                    </div>
+                    <span class="show-text" id="edit-mod-and">
+                        <em>
+                            {{t "cadModule.clickToUp"}}
+                        </em>
+                    </span>
+                </div>
+            </div>  
+        </div>
+        <div class="row clearfix editPkgErr"></div>
+        <div>
+            <input type="text" style="display:none" name="editIosPkgName">
+            <input type="text" style="display:none" name="editAndPkgName">
+        </div>
+        <div class="row clearfix" style="height:30px;margin-bottom:20px;position:relative;">
+            <label class="form-left-label">{{t "cadModule.versionSet"}}</label>
+            <div class="verson-group verson-group-add">
+                <input type="text" name="editVer1" class="verson-num num1" maxlength="2">
+                <span class="verson-dot">.</span>
+                <input type="text" name="editVer2" class="verson-num num2" maxlength="2">
+                <span class="verson-dot">.</span>
+                <input type="text" name="editVer3" class="verson-num num3" maxlength="2">
+            </div>
+        </div>
+        <div class="editVersionErr"></div>
+        <div class="row clearfix" style="margin-bottom:20px;">
+            <label class="form-left-label">{{t "cadModule.modOverview"}}</label>
+            <div class="row content-innerBox addModule-innerBox" style="width:342px;">
+                <input id="editModule-summary" name="mdInfo" type="text" class="form-control no-border-text">
+                <label class="text-count"><span id="edit-mod-sum">0</span> / 30</label>
+            </div>
+        </div>
+        <!-- <div class="row clearfix" style="margin-bottom:20px;">
+            <label class="form-left-label">接口说明</label>
+            <textarea id="editModule-detail" class=""></textarea>
+        </div> -->
+        <div class="row clearfix" id="edit-btns">
+            <input type="submit" class="btn btn-blue edit-save" value='{{t "common.save"}}' />
+            <button class="btn cancel">{{t "common.cancel"}}</button>
+        </div>
+    </form>
+    <!-- 模块详情 -->
+    <div id="mod_detail_modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <div class="img-box">
+                        <img class="img" src="../assets/images/default.jpg" alt="">
+                    </div>
+                    <div class="mod_detail_des">
+                        <span class="mod_detail_name">
+                            <!-- coverFlowImage -->
+                        </span>
+                        <div class="mod_detail_des_group clearfix">
+                            <div class="module-hot">
+                                <i class="icon-hot"></i>
+                                <span class="module-hot-count"><!-- 已有3333个App使用 --></span>
+                            </div>
+                            <span class="split"></span>
+                            <div class="platform-group">
+                                <i class="icon-android"></i>
+                                <i class="icon-apple active"></i>
+                                <span class="mod_detail_platform"><!-- 支持Android及iOS --></span>
+                            </div>
+                            <span class="split"></span>
+                            <span class="price free">{{t "moduleStore.free"}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div id="">
+                        <div class="mod_detail_box_left">
+                            <div class="mod_pub_prev_box">
+                                <div class="mod_detail_carousel">   
+                                    <ul class="bxslider">
+                                        <li>
+                                            <div class="prev_box">
+                                                <img src="../assets/images/client.png" alt="" class="prev_page">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mod_detail_box_right">
+                            <div class="mod_detail_box_right_top">
+                                <span class="mod_detail_title">
+                                    <!-- 模块概述 -->
+                                    {{t "moduleStore.module_description"}}
+                                </span>
+                                <p class="mod_detail_details">
+                                    <!-- 本字符实体参考手册包括了数学符号、希腊字符、各种箭头记号、科技符号以及形状。 -->
+                                </p>
+                                <a href="javascript:void(0)" class="go_mod_doc" target="_blank">
+                                    <i class="icon-file-text-alt"></i>
+                                    {{t "moduleStore.read_the_module_doc"}}
+                                </a>
+                            </div>
+                            <div class="mod_detail_box_right_bottom">
+                                <div class="mod_detail_row">
+                                    <span>{{t "moduleStore.version"}}：</span><span class="version content"><!-- v0.2.1 --></span>
+                                </div>
+                                <div class="mod_detail_row">
+                                    <span>{{t "moduleStore.provider"}}：</span><span class="author content"><!-- APICloud --></span>
+                                </div>
+                                <div class="mod_detail_row">
+                                    <span>{{t "moduleStore.last_updated_on"}}：</span><span class="update content"><!-- 2014年12月12日 --></span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+                </div> -->
+            </div><!-- /.modal-content --> 
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>

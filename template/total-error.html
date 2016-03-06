@@ -1,0 +1,244 @@
+﻿<link rel="stylesheet" type="text/css" href="../assets/css/totalbase.css" />
+<link rel="stylesheet" type="text/css" href="../libs/daterangepicker/daterangepicker-bs3.css"/>
+<style type="text/css">
+
+    #detailsTable{
+        border-top: 1px solid #ccc;
+        padding-top: 4px;
+    }
+    .moreUpAndDown {
+        border-top: 1px solid #e8e7e6;
+        color: #3498db;
+        display: block;
+        font-size: 14px;
+        padding: 20px 0;
+        text-align: center;
+        cursor: pointer;
+    }
+    .moreUpAndDown.active {
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #ddd;
+    }
+    .navTab{
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+    }
+    .navTab>table{
+        width: 200px;
+        margin-bottom: -1px;
+    }
+    .navTab>table th{
+        text-align: center;
+        border-left: solid 1px #cccccc;
+        font-size: 14px;
+        padding: 15px 0;
+        position: relative;
+        border-bottom: solid 1px #ddd;
+        font-weight: normal;
+    }
+    .navTab>table th{
+        cursor: pointer;
+         color: #81867c;
+    }
+    .navTab>table th:first-child{
+        border-left: none;
+    }
+    .navTab>table th.active .topselect{
+        width: 100%;
+        height: 0;
+        border: 2px solid #8fb300;
+        position: absolute;
+        top: 0;
+    }
+    .navTab>table th.active{
+        color: #8fb300;
+        border-bottom: solid 1px white;
+    }
+    .navTab > table th:last-child{
+        border-right: solid 1px #ddd;
+    }
+    #detailsTable table{
+        border-bottom: none;
+    }
+    #detailsTable{
+        padding-top: 0;
+        border-top: none;
+    }
+    .rightbtn{
+        margin-right: 20px;
+        margin-top: -43px;
+    }
+    .listdetails{
+        color: #4d8ceb;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    #detailsError .pre{
+        padding: 20px;
+        color: #333;
+        display: block;
+        font-size: 13px;
+        line-height: 1.42857;
+        margin: 0 0 10px;
+    }
+    #detailsData{
+        height: 400px;
+        overflow: auto;
+    }
+    #detailsError{
+        height: 400px;
+        overflow: hidden;
+    }
+    #detailsData .table > thead > tr > th, 
+    #detailsData .table > tbody > tr > th, 
+    #detailsData .table > tfoot > tr > th, 
+    #detailsData .table > thead > tr > td, 
+    #detailsData .table > tbody > tr > td,
+    #detailsData .table > tfoot > tr > td{
+        padding: 12px;
+        border-top: none;
+        color: #858585;
+    }
+    #detailsData .table > thead > tr > th:first-child,#detailsData .table > tbody > tr > td:first-child
+ {
+        padding-left: 60px;
+    }
+    #closeErrorDetails{
+        color: #aaa;
+        cursor: pointer;
+        display: block;
+        font-size: 18px;
+        padding-top: 7px;
+    }
+    #kre{
+        padding: 30px;
+        width: 100%;
+        height: 100%;
+        border: none;
+        background-color: transparent;
+    }
+</style>
+
+<div class="panel">
+    <div class="panel-header">
+        <table>
+            <tr>
+                <th><div class="topselect"></div><a href="../module/total">{{t "Total.AppData"}}</a></th>
+                <th> <div class="topselect"></div><a href="../module/total-version">{{t "Total.VersionData"}}</a></th>
+                <th> <div class="topselect"></div><a href="../module/total-area">{{t "Total.LocationDistribution"}}</a></th>
+                <th> <div class="topselect"></div><a href="../module/total-terminal">{{t "Total.DeviceData"}}</a></th>
+                <th class="active"> <div class="topselect"></div><a href="javascript:void(0)">{{t "Total.ErrorReport"}}</a></th>
+                <th> <div class="topselect"></div><a href="../module/total-custom">{{t "Total.CustomEvent"}}</a></th>
+            </tr>
+        </table> 
+    </div>
+    <div class="panel-body">
+       <div class="pull-right">
+            <div class="input-group" style="width:251px;">
+                <div class="input-group-addon group-date"><i class="glyphicon glyphicon-calendar"></i></div>
+                <input type="text" id="text-picker" class="form-control" style="width:212px;display:inline-block;">
+            </div>
+       </div>
+    </div>
+    <div id="myCharts" style="border-top:solid 1px #ddd;width: 100%;height:300px; text-align: center; margin:0 auto;">
+        <div class="isLoading">
+            <img src="../assets/images/loading_pre.gif" alt="数据加载中">
+            {{t "common.loading"}}
+        </div>
+    </div>
+    <span id="loading_more" class="moreUpAndDown"><img src="../assets/images/arr_b.png" />  {{t "Total.ErrorList"}}</span>
+    <div id="detailsTable" style="display:none;">
+        <!--<div class="navTab">-->
+            <!--<table>-->
+                <!--<tr>-->
+                    <!--<th class="active"><div class="topselect"></div>已修复</th>-->
+                    <!--<th><div class="topselect"></div>未修复</th>-->
+                <!--</tr>-->
+            <!--</table> -->
+        <!--</div>-->
+        <!--<div class="pull-right rightbtn">-->
+                <!--<button id="repair" class="btn btn-custom-default active">-->
+                    <!--<i class="glyphicon glyphicon-ok"></i>-->
+                    <!--标记已修复-->
+                <!--</button>-->
+                 <!--<button id="unrepair" class="btn btn-custom-default active" style="display:none
+;">-->
+                    <!--<i class="glyphicon glyphicon-exclamation-sign"></i>-->
+                    <!--标记未修复-->
+                <!--</button>-->
+            <!--</div>-->
+        <div id="tab1">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <!--<th style="width:45px"><input type="checkbox" /></th>-->
+                        <th style="width:40%;">{{t "Total.ErrorDescription"}}</th>
+                        <th>{{t "Total.AppVersion"}}</th>
+                        <th>{{t "Total.Errors"}}</th>
+                        <th>{{t "Total.TimeOfOccurrence"}}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+               <tbody>                                                          
+               </tbody>
+            </table>
+            <div style="text-align:center">
+                <div id="Pagination1"></div>
+            </div>
+        </div>
+        <div id="tab2" style="display:none;">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th style="width:40%;">{{t "Total.ErrorDescription"}}</th>
+                        <th>{{t "Total.AppVersion"}}</th>
+                        <th>{{t "Total.Errors"}}</th>
+                        <th>{{t "Total.TimeOfOccurrence"}}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+               <tbody>                                                          
+               </tbody>
+            </table>
+            <div style="text-align:center">
+                <div id="Pagination2"></div>
+            </div>
+        </div>
+
+    </div>
+    <div id="errorDetails" style="display:none;">
+        <div class="navTab">
+            <table>
+                <tr>
+                    <th class="active"><div class="topselect"></div>{{t "Total.ErrorDetails"}}</th>
+
+                    <th><div class="topselect"></div>{{t "Total.DataDetails"}}</th>
+                </tr>
+            </table> 
+        </div>
+        <div class="pull-right rightbtn">
+            <span id="closeErrorDetails"><i class="glyphicon glyphicon-remove" style=""></i></span>
+
+        </div>
+        <div id="detailsError">
+            <pre id="kre"></pre>
+        </div>
+        <div id="detailsData" style="display:none;">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>{{t "Total.Equipment"}}</th>
+                        <th>{{t "Total.OS"}}</th>
+                        <th>{{t "Total.Errors"}}</th>
+                    </tr>
+                </thead>
+               <tbody>                                                          
+               </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    {{{jsfunc}}}
+</script>

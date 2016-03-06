@@ -1,0 +1,377 @@
+<link rel="stylesheet" type="text/css" href="../assets/css/icheck.blue.css" />
+<link rel="stylesheet" type="text/css" href="../assets/css/module.css" />
+<link rel="stylesheet" type="text/css" href="../libs/jquery/jquery-ui.min.css" />
+
+<div class="panel" id="module">
+    <!-- 新增 -->
+    <div class="panel" style="width:100%">
+        <div class="panel-header">
+            <table>
+                <tr>
+                    <th><div class="topselect"></div><a href="../module/module">{{t "cadModule.modAdded"}}</a></th>
+                    <th class="active"><div class="topselect"></div><a href="../module/module-store">{{t "cadModule.modLib"}}</a></th>
+                    <th><div class="topselect"></div><a href="../module/module-custom">{{t "cadModule.cusMod"}}</a></th>
+                    <th><div class="topselect"></div><a href="../module/module-auth">{{t "cadModule.authRec"}}</a></th>
+                    <th><div class="topselect"></div><a href="../module/module-loader">{{t "cadModule.loader"}}</a></th>
+                </tr>
+            </table>
+            
+        </div>
+        <div class="module-store-filter header">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3 class="pull-left" style="margin-right:10px;"><!-- 类别 -->{{t "moduleStore.category2"
+}}</h3>
+                    <div class="btn-group dropdown platform">
+                        <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
+                            <span id="requestText" first-type="0" second-type="">{{t "moduleStore.all"}}</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul role="menu" class="dropdown-menu" id="requestlist">
+                            <!-- <li>
+                                <a data-first="0" data-second="0" class="title" href="javascript:void
+(0)">全部</a> 
+                            </li>
+                            <li>
+                                <a data-first="5" data-second="0" class="title" href="javascript:void
+(0)">功能扩展</a>
+                                <a data-first="5" data-second="0"  href="javascript:void(0)" class="detail"
+>本地存储</a>
+                                <a href="javascript:void(0)" class="detail">文本浏览</a>
+                                <a href="javascript:void(0)" class="detail">网络通信</a>
+                                <a href="javascript:void(0)" class="detail">多媒体</a>
+                                <a href="javascript:void(0)" class="detail">其它</a>
+                                
+                            </li>
+                            <li>
+                                <a data-value="3" class="title" href="javascript:void(0)">界面布局</a>
+                                <a href="javascript:void(0)" class="detail">列表</a>
+                                <a href="javascript:void(0)" class="detail">选择器</a>
+                                <a href="javascript:void(0)" class="detail">图表</a>
+                                <a href="javascript:void(0)" class="detail">其它</a>
+                            </li>
+                            <li>
+                                <a data-value="4" class="title" href="javascript:void(0)">导航菜单</a>
+                            </li>
+                            <li>
+                                <a data-value="8" class="title" href="javascript:void(0)">开放SDK</a>
+
+                                <a href="javascript:void(0)" class="detail">支付</a>
+                                <a href="javascript:void(0)" class="detail">分享及登录</a>
+                                <a href="javascript:void(0)" class="detail">语音识别</a>
+                                <a href="javascript:void(0)" class="detail">地图</a>
+                                <a href="javascript:void(0)" class="detail">其它</a>
+                            </li>
+                            <li>
+                                <a data-value="2" class="title" href="javascript:void(0)">设备访问</a>
+                            </li>
+                            <li>
+                                <a data-value="9" class="title" href="javascript:void(0)">云服务对接</a>
+
+                            </li> -->
+                            <!-- <li><a data-value="6" href="#">自定义</a></li>
+                            <li><a data-value="6" href="#">已添加</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div id="module-platform" class="col-md-9">
+                        <label>
+                            <input type="checkbox" name="platform-ios" class="platform-ios">
+                            {{t "moduleStore.available_for_ios"}}
+                        </label>
+                        <label>
+                            <input type="checkbox" name="platform-android" class="platform-android">
+
+                            {{t "moduleStore.available_for_android"}}
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <form class="input-group input-group-filter" novalidate="novalidate">
+                            <button type="submit" id="search-mod" class="input-group-addon glyphicon
+ glyphicon-search"></button>
+                            <input id="search-txt" type="text" class="form-control module-filter-text"
+>
+                            <i class="clearBtn" style="display:none;"></i>
+                        </form>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+    <!-- 2014-12-10 新增 end -->
+    <!-- 2014-12-12 新增 -->
+    <div class="filter-message clearfix">
+        <div class="filter-message-normal">
+            <label style="display: inline;">{{t "moduleStore.mods_in_category1"}}</label>
+            <span class="count">{{allNum}}</span>
+            <label>{{t "moduleStore.mods_in_category2"}}</label>
+        </div>
+        <div class="filter-message-back">
+            <a class="btn-back" href="javascript:void(0)">
+                <i class="icon icon-angle-left"></i>
+                {{t "moduleStore.back"}}
+            </a>
+            <label>{{t "moduleStore.found1"}}</label>
+            <span class="count">0</span>
+            <label>{{t "moduleStore.found2"}}</label>
+        </div>
+    </div>
+    <!-- 2014-12-12 新增 end -->
+    <!-- 2014-12-11 模块部分 -->
+    <div class="module-box clearfix">
+        {{#each body}}
+        <div class="module-container clearfix" mdid="{{mdId}}" >
+            <div class="module-container-inner">
+                <div class="img-box">
+                    {{#if icon_path}}
+                    <img class="img" src="{{icon_path}}" alt="">
+                    {{else}}
+                    <img class="img" src="../assets/images/default.jpg" alt="">
+                    {{/if}}
+                    <div class="img-shadow"></div>
+                </div>
+                <div class="module-container-right">
+                    <div class="module-container-right-top">
+                        <div class="module-container-name-shadow"></div>
+                        <div class="module-container-name-group clearfix">
+                            {{#if bind}}
+                            <span class="status-group added active">{{t "cadModule.added"}}</span>
+                            <a href="javascript:void(0)" mdid="{{mdId}}" class="status-group add"></a
+>
+                            {{else}}
+                            <span class="status-group added">{{t "cadModule.added"}}</span>
+                            <a href="javascript:void(0)" mdid="{{mdId}}" class="status-group add active"
+></a>
+                            {{/if}}
+                            <span class="module-name" md-name="{{mdName}}" md-ver="{{mdVer}}" md-des
+="{{mdDescription}}" md-info="{{mdInfo}}" md-platform="{{mdPlatform}}">{{mdName}}</span>
+                        </div>
+                        <div class="module-hot">
+                            <i class="icon-hot"></i>
+                            <span class="module-hot-count">{{num}}</span>
+                        </div>
+                        <p class="module-brief">
+                            {{#if ../i18nlng}}
+                                {{enInfo}}
+                                <span>
+                                {{#if conflict}}
+                                {{conflict}}
+                                {{/if}}
+                                </span>
+                            {{else}}
+                                {{mdInfo}}
+                                <span>
+                                {{#if conflict}}
+                                {{conflict}}
+                                {{/if}}
+                                </span>
+                            {{/if}}
+                        </p>
+                    </div>
+                    <div class="module-container-right-bottom">
+                        <div class="platform-group">
+                            {{#eq mdPlatform 2}}
+                            <i class="icon-android"></i>
+                            <i class="icon-apple"></i>
+                            {{/eq}}
+                            {{#eq mdPlatform 0}}
+                            <i class="icon-apple"></i>
+                            {{/eq}}
+                            {{#eq mdPlatform 1}}
+                            <i class="icon-android"></i>
+                            {{/eq}}
+                        </div>
+                        {{#if key_id}}
+                        <div class="price-group bought">
+                            <span class="done">{{t "cadModule.Licenced"}}</span>
+                        {{else}}
+                        <div class="price-group">
+                            {{#if isfree}}
+                            <span class="done block">{{t "moduleStore.free"}}</span>
+                            {{else}}
+                            <span class="price">￥{{price}}</span>
+                            <a href="{{taobao_url}}" target="_blank" class="btn-buy">{{t "cadModule.Licence"
+}}</a>
+                            <span class="done">{{t "cadModule.Licenced"}}</span>
+                            {{/if}}
+                        {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        {{/each}}
+    </div>
+    <script id="mod-store-template" type="text/x-handlebars-template">
+        \{{#each body}}
+        <div class="module-container clearfix" mdid="\{{mdId}}" >
+            <div class="module-container-inner">
+                <div class="img-box">
+                    \{{#if icon_path}}
+                    <img class="img" src="\{{icon_path}}" alt="">
+                    \{{else}}
+                    <img class="img" src="../assets/images/default.jpg" alt="">
+                    \{{/if}}
+                    <div class="img-shadow"></div>
+                </div>
+                <div class="module-container-right">
+                    <div class="module-container-right-top">
+                        <div class="module-container-name-shadow"></div>
+                        <div class="module-container-name-group clearfix">
+                            \{{#if bind}}
+                            <span class="status-group added active">{{t "cadModule.added"}}</span>
+                            <a href="javascript:void(0)" mdid="\{{mdId}}" class="status-group add"><
+/a>
+                            \{{else}}
+                            <span class="status-group added">{{t "cadModule.added"}}</span>
+                            <a href="javascript:void(0)" mdid="\{{mdId}}" class="status-group add active"
+></a>
+                            \{{/if}}
+                            <span class="module-name" md-name="\{{mdName}}" md-ver="\{{mdVer}}" md-des
+="\{{mdDescription}}" md-info="\{{mdInfo}}" md-platform="\{{mdPlatform}}">\{{mdName}}</span>
+                        </div>
+                        <div class="module-hot">
+                            <i class="icon-hot"></i>
+                            <span class="module-hot-count">\{{num}}</span>
+                        </div>
+                        <p class="module-brief">
+                            \{{#if ../i18nlng}}
+                                \{{enInfo}}
+                                <span>
+                                \{{#if conflict}}
+                                \{{conflict}}
+                                \{{/if}}
+                                </span>
+                            \{{else}}
+                                \{{mdInfo}}
+                                <span>
+                                \{{#if conflict}}
+                                \{{conflict}}
+                                \{{/if}}
+                                </span>
+                            \{{/if}}
+                        </p>
+                    </div>
+                    <div class="module-container-right-bottom">
+                        <div class="platform-group">
+                            \{{#eq mdPlatform 2}}
+                            <i class="icon-android"></i>
+                            <i class="icon-apple"></i>
+                            \{{/eq}}
+                            \{{#eq mdPlatform 0}}
+                            <i class="icon-apple"></i>
+                            \{{/eq}}
+                            \{{#eq mdPlatform 1}}
+                            <i class="icon-android"></i>
+                            \{{/eq}}
+                        </div>
+                        \{{#if key_id}}
+                        <div class="price-group bought">
+                            <span class="done">{{t "cadModule.Licenced"}}</span>
+                        \{{else}}
+                        <div class="price-group">
+                            \{{#if isfree}}
+                            <span class="done block">{{t "moduleStore.free"}}</span>
+                            \{{else}}
+                            <span class="price">￥\{{price}}</span>
+                            <a href="\{{taobao_url}}" target="_blank" class="btn-buy">{{t "cadModule
+.Licence"}}</a>
+                            <span class="done">{{t "cadModule.Licenced"}}</span>
+                            \{{/if}}
+                        \{{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        \{{/each}}
+    </script>
+    <!-- 2014-12-11 模块部分 end -->
+    <!-- 模块详情 -->
+    <!-- 模块详情 -->
+    <div id="mod_detail_modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <div class="img-box">
+                        <img class="img" src="../assets/images/default.jpg" alt="">
+                    </div>
+                    <div class="mod_detail_des">
+                        <span class="mod_detail_name">
+                            <!-- coverFlowImage -->
+                        </span>
+                        <div class="mod_detail_des_group clearfix">
+                            <div class="module-hot">
+                                <i class="icon-hot"></i>
+                                <span class="module-hot-count"><!-- 已有3333个App使用 --></span>
+                            </div>
+                            <span class="split"></span>
+                            <div class="platform-group">
+                                <i class="icon-android"></i>
+                                <i class="icon-apple active"></i>
+                                <span class="mod_detail_platform"><!-- 支持Android及iOS --></span>
+                            </div>
+                            <span class="split"></span>
+                            <span class="price free"><!-- 免费 --></span>
+                            <a href="javascript:void(0)" class="go_tb_url" target="_blank">{{t "moduleStore
+.note1_1"}}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div id="">
+                        <div class="mod_detail_box_left">
+                            <div class="mod_pub_prev_box">
+                                <div class="mod_detail_carousel">   
+                                    <ul class="bxslider">
+                                        <li>
+                                            <div class="prev_box">
+                                                <img src="../assets/images/client.png" alt="" class="prev_page"
+>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mod_detail_box_right">
+                            <div class="mod_detail_box_right_top">
+                                <span class="mod_detail_title">
+                                    <!-- 模块概述 -->
+                                    {{t "moduleStore.module_description"}}
+                                </span>
+                                <p class="mod_detail_details">
+                                    <!-- 本字符实体参考手册包括了数学符号、希腊字符、各种箭头记号、科技符号以及形状。 -->
+                                </p>
+                                <a href="javascript:void(0)" class="go_mod_doc" target="_blank">
+                                    <i class="icon-file-text-alt"></i>
+                                    {{t "moduleStore.read_the_module_doc"}}
+                                </a>
+                            </div>
+                            <div class="mod_detail_box_right_bottom">
+                                <div class="mod_detail_row">
+                                    <span>{{t "moduleStore.version"}}：</span><span class="version content"><!-- v0.2.1 --></span>
+                                </div>
+                                <div class="mod_detail_row">
+                                    <span>{{t "moduleStore.provider"}}：</span><span class="author content"><!-- APICloud --></span>
+                                </div>
+                                <div class="mod_detail_row">
+                                    <span>{{t "moduleStore.last_updated_on"}}：</span><span class="update content"><!-- 2014年12月12日 --></span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+                </div> -->
+            </div><!-- /.modal-content --> 
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>

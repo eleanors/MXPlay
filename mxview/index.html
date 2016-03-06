@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<title>无标题文档</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="../libs/ie-shim/html5shiv.js"></script>
+<link rel="stylesheet" href="../assets/css/animate.min.css" />
+<link rel="stylesheet" href="../libs/bootstrap/bootstrap.css" />
+<link rel="stylesheet" href="../assets/font-awesome/font-awesome.css" />
+<!--[if IE 7]>
+<link rel="stylesheet" href="assets/font-awesome/font-awesome-ie7.min.css">
+<![endif]-->
+<link rel="stylesheet" href="../assets/css/mxview.css" />
+<link rel="stylesheet" href="../assets/css/butterbar.css" />
+
+<script src="../libs/requirejs/require.js"></script>
+<!--script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
+<script src="https://cdn.bootcss.com/json2/20150503/json2.min.js"></script>
+<script src="https://cdn.bootcss.com/html5shiv/r29/html5.js"></script-->
+
+</head>
+
+<body>
+      <div class="butterbar hide">
+            <span class="bar"></span>
+      </div>
+      <main class="main">
+            <menu class="menu" id="menu">
+                     <div class="logoWrap">
+                            <a href="http://localhost/mxplay/mxview" class="logo  icon-spinner"></a>
+                            <a href="javascript:void 0;" class="toggle-menu icon-reorder"></a>
+                     </div>
+                     <div class="innerWrap">
+                            <div class="overview active">
+                                
+                                   <a href="../module/appoverview">推荐</a>
+                            </div>
+                            <dl>
+                                  <dt>新碟上架</dt>
+                                  <dd>
+                                        <ul>
+                                             <li><a href="../module/module"><span class="icon-music"></span>全部</a></li>
+                                             <li><a href="../code"><span class="icon-music"></span>华语</a></li>
+                                             <li><a href="../compile"><span class="icon-music"></span>韩国</a></li>
+                                             <li><a href="../member"><span class="icon-music"></span>日本</a></li>
+                                             <li><a href="../module"><span class="icon-music"></span>欧美</a></li>
+                                        </ul>
+                                  </dd>
+                                  <dt>云音乐特色榜</dt>
+                                  <dd>
+                                        <ul>
+                                             <li><a href=""><span class="icon-music"></span>音乐飙升榜</a></li>
+                                             <li><a href=""><span class="icon-music"></span>音乐新歌榜</a></li>
+                                             <li><a href=""><span class="icon-music"></span>音乐热歌榜</a></li>
+                                             <li><a href=""><span class="icon-music"></span>原创歌曲榜</a></li>
+                                             <li><a href=""><span class="icon-music"></span>古典音乐榜</a></li>
+                                             <li><a href=""><span class="icon-music"></span>华语金曲榜</a></li>
+                                             <li><a href=""><span class="icon-music"></span>全球媒体榜</a></li>
+                                        </ul>
+                                   </dd>
+                                  <dt>应用服务</dt>
+                                  <dd>
+                                        <ul>
+                                             <li><a href="../module/push"><span class="icon-music"></span>推送</a></li>
+                                             <li><a href="../module/total"><span class="icon-music"></span>统计</a></li>
+                                             <li><a href=""><span class="icon-music"></span>个人专辑</a></li>
+                                             <li><a href=""><span class="icon-music"></span>个人设置</a></li>
+                                             <li><a href=""><span class="icon-music"></span>最新发布</a></li>
+                                        </ul>
+                                   </dd>
+                            </dl>
+                     </div>
+            </menu>
+            <div class="mainWrap">
+					<header id="main-header" class="header">
+                    
+                          <div class="album-list">
+                                   <span class="icon icon-angle-down"></span>
+                                   <span class="ablue-name">个性推荐</span>
+                          </div>
+                          <div class="user-setting">
+                          	     <span><em class=""></em>设置</span>
+                                 <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                                         <li><a href=""><i class="fa icon-tasks"></i>我的主页</a></li>
+                                         <li><a href=""><i class="fa icon-tasks"></i>个人等级</a></li>
+                                         <li><a href=""><i class="fa icon-star"></i>收藏专辑</a></li>
+                                         <li><a href=""><i class="fa icon-heart"></i>喜欢专辑</a></li>
+                                         <li><a href=""><i class="fa icon-signout"></i>退出登录</a></li>
+                                 </ul>
+                          </div>
+                          <ul class="sub-meun">
+                          	     <li>等级</li>
+                          	     <li>积分商城</li>
+                          	     <li>积分商城</li>
+                          	     <li>积分商城</li>
+                          </ul>
+                    </header>
+					<div class="main-content">
+                    
+                    
+                    积分商城积分商城积分商城积分商城积分商城积分商城积分商城
+                    
+                    </div>
+            </div>
+      </main>
+
+
+      <footer>
+
+      </footer>
+
+
+<script>
+	function getJsName(){
+		return "";
+	}
+</script>
+<script type="text/javascript">
+
+     require.config({
+     baseUrl: '../libs/',
+
+     urlArgs: "v=" + (new Date()).getTime(),
+
+	 paths: {
+		    'jquery': 'jquery/jquery-1.10.2',
+			"cookie":"jquery/jquery.cookie",
+		    'mootools': 'mootools/mootools',
+		    'artTemplate': 'artTemplate/template',
+		    'bootstrap': 'bootstrap/bootstrap.min',
+		    'modernizr': 'modernizr/modernizr',
+		    'Handlebars': 'handlebars',
+			"i18next": "i18next/i18next",
+			"request": "browser-request/request",
+			"async": 'browser-request/async',
+			"ie-shim": 'ie-shim/ie-shim',
+			
+            'page': 'page/page',
+			
+            "bootstrap": "bootstrap/bootstrap.min",
+			
+			"webuploader": 'webuploader/webuploader',
+			
+            "validate": "jquery/jquery.validate.min",
+            "jqueryui": "jquery/jquery-ui.min",
+            "switchbutton": "switchButton/switchbutton",
+            "echarts":"echarts/echarts-plain.js",
+            "echarts-map":"echarts/echarts-plain-map",
+            "pagination":"jquery/jquery.pagination",
+            "nicescroll":"jquery/jquery.nicescroll.min"
+			
+	 },
+
+	 shim: {
+
+		    'bootstrap': {
+			      deps: ['jquery']
+			},
+		    'artTemplate': {
+			      deps: ['jquery']
+			},
+		    'jqueryui': {
+			      deps: ['jquery']
+			},
+		    'pagination': {
+			      deps: ['jquery']
+			}
+
+	 }
+})
+
+
+/**
+
+
+              "jquery": "jquery/jquery.js",
+              "Handlebars": "handlebars/handlebars.js",
+              "page": "page/page.js",
+              "async": "async.js",
+              "modernizr": "modernizr/modernizr.js",
+              "i18next": "i18next/i18next.js",
+              "request": "browser-request/index.js",
+              "bootstrap": "bootstrap/bootstrap.min.js",
+              "icheck": "jquery/iCheck/icheck.min.js",
+              "switchbutton":"jquery/switchButton/switchButton.js",
+              "cookie":"jquery/jquery.cookies.js",
+              "placeholder": "jquery/placeholder.js",
+              "validate": "jquery/jquery.validate.min.js",
+              "webuploader": "webuploader/webuploader.min.js",
+              "daterangepicker": "daterangepicker/picker.js",
+              "moment": "daterangepicker/moment.min.js",
+              "jqui": "jquery/jqueryui/jquery-ui.min.js",
+              "echarts":"Echarts/echarts-plain.js",
+              "echarts-map":"Echarts/echarts-plain-map.js",
+              "pagination":"jquery/jquery.pagination.js",
+              "jquerydrag":"jquery/jquery.event.drag-2.2.js",
+              "timepicker-addon":"jquery/jquery-ui-timepicker-addon.min.js",
+              "slickgrid":"SlickGrid/js/slick.js"
+
+*/
+
+require(['../module/base'])
+</script>
+</body>
+</html>

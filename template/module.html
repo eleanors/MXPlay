@@ -1,0 +1,329 @@
+<link rel="stylesheet" type="text/css" href="../assets/css/module.css" />
+<link rel="stylesheet" type="text/css" href="../libs/jquery/jquery-ui.min.css" />
+
+<div class="panel" id="module">
+    <!-- 2014-12-10 新增 -->
+    <div class="panel" style="width:100%">
+        <div class="panel-header">
+            <table>
+                <tr>
+                    <th class="active"><div class="topselect"></div><a href="javascript:void(0)">{{t "cadModule.modAdded"}}</a></th>
+                    <th><div class="topselect"></div><a href="../module/module-store">{{t "cadModule.modLib"}}</a></th>
+                    <th><div class="topselect"></div><a href="../module/module-custom">{{t "cadModule.cusMod"}}</a></th>
+                    <th><div class="topselect"></div><a href="../module/module-auth">{{t "cadModule.authRec"}}</a></th>
+                    <th><div class="topselect"></div><a href="../module/module-loader">{{t "cadModule.loader"}}</a></th>
+                </tr>
+            </table>
+            
+        </div>
+        <div class="bind-module-notice">
+            <span class="module-notice-index">1.</span>
+            <span class="module-notice-text">
+                {{t "cadModule.note1_1"}}
+            </span>
+            <span class="module-notice-index">2.</span>
+            <span class="module-notice-text">
+                {{t "cadModule.note1_2"}}
+            </span>
+            <span class="module-notice-index">3.</span>
+            <span class="module-notice-text last">
+                {{t "cadModule.note1_3"}}
+            </span>
+            <i class="icon-remove module-notice-close"></i>
+        </div>
+    </div>
+    {{#if body}}
+    <!-- 模块部分 -->
+    <div class="module-box clearfix">
+        {{#each body}}
+        <div class="module-container clearfix" mdid="{{mdId}}" >
+            <div class="module-container-inner">
+                <div class="img-box">
+                    {{#if icon_path}}
+                    <img class="img" src="{{icon_path}}" alt="">
+                    {{else}}
+                    <img class="img" src="../assets/images/default.jpg" alt="">
+                    {{/if}}
+                    <div class="img-shadow"></div>
+                </div>
+                <div class="module-container-right">
+                    <div class="module-container-right-top">
+                        <div class="module-container-name-shadow"></div>
+                        <div class="module-container-name-group clearfix">
+                        {{#eq del 1}}
+                            <span class="status-group added active">{{t "cadModule.added"}}</span>
+                        {{else}}
+                            <a href="javascript:void(0)" mdid="{{mdId}}" class="status-group del active"
+></a>
+                        {{/eq}}
+                            <!-- 此处若是可删除模块则显示删除按钮，否则显示已添加 -->
+                            <span class="module-name" md-name="{{mdName}}" md-ver="{{mdVer}}" md-des="{{mdDescription}}" md-info="{{mdInfo}}" md-platform="{{mdPlatform}}">{{mdName}}</span>
+                        </div>
+                        <div class="module-hot">
+                            <i class="icon-hot"></i>
+                            <span class="module-hot-count">{{num}}</span>
+                        </div>
+                        <p class="module-brief">
+                            {{#if ../i18nlng}}
+                                {{enInfo}}
+                                <span>
+                                {{#if conflict}}
+                                {{conflict}}
+                                {{/if}}
+                                </span>
+                            {{else}}
+                                {{mdInfo}}
+                                <span>
+                                {{#if conflict}}
+                                {{conflict}}
+                                {{/if}}
+                                </span>
+                            {{/if}}
+                        </p>
+                    </div>
+                    <div class="module-container-right-bottom">
+                        <div class="platform-group">
+                            {{#eq mdPlatform 2}}
+                            <i class="icon-android"></i>
+                            <i class="icon-apple"></i>
+                            {{/eq}}
+                            {{#eq mdPlatform 0}}
+                            <i class="icon-apple"></i>
+                            {{/eq}}
+                            {{#eq mdPlatform 1}}
+                            <i class="icon-android"></i>
+                            {{/eq}}
+                        </div>
+                        {{#if key_id}}
+                        <div class="price-group bought">
+                            <span class="done">{{t "cadModule.Licenced"}}</span>
+                        {{else}}
+                        <div class="price-group">
+                            {{#if isfree}}
+                            <span class="done block">{{t "moduleStore.free"}}</span>
+                            {{else}}
+                            <span class="price">￥{{price}}</span>
+                            <span class="btn-buy">{{t "cadModule.Licence"}}</span>
+                            <span class="done">{{t "cadModule.Licenced"}}</span>
+                            {{/if}}
+                        {{/if}}
+                        </div>
+                        <div class="module-auth-form-box">
+                            <form class="module-auth-form" method="post">
+                                <div class="module-input-group">
+                                    <input type="button" class="btn-cancel" value="{{t 'cadModule.cancel'}}">
+                                    <input type="submit" class="btn-submit" value="{{t 'cadModule.ok'
+}}">
+                                    <div class="module-auth-input-box">
+                                        <input type="text" class="module-auth-input" name="module-auth-input" placeholder="{{t 'cadModule.note2_1'}}">
+                                    </div>
+                                </div>
+                                <div class="module-auth-tips-box">
+                                    <span>{{t "cadModule.note2_2"}}</span>
+                                    <a href="{{taobao_url}}" target="_blank" >{{t "cadModule.note2_3"}}</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        {{/each}}
+    </div>
+    <!-- 模块部分 end -->
+    {{else}}
+    <div class="no-data panel" style="margin-right: 1%;">
+        <div class="panel-body panel-body-custom">
+            <div class="tiptitle">
+                <i class="icon-notice"></i>
+                {{t "cadModule.note2_4"}}
+            </div>
+            <label class="tip-notice">{{t "cadModule.note2_5"}}</label>
+            <button class="btn btn-default btn-width">{{t "cadModule.note2_6"}}</button>
+        </div> 
+    </div>
+    {{/if}}
+    <!-- 2014-12-10 新增 end -->
+    <script id="mod-template" type="text/x-handlebars-template">
+        \{{#each body}}
+        <div class="module-container clearfix" mdid="\{{mdId}}" >
+            <div class="module-container-inner">
+                <div class="img-box">
+                    \{{#if icon_path}}
+                    <img class="img" src="\{{icon_path}}" alt="">
+                    \{{else}}
+                    <img class="img" src="../assets/images/default.jpg" alt="">
+                    \{{/if}}
+                    <div class="img-shadow"></div>
+                </div>
+                <div class="module-container-right">
+                    <div class="module-container-right-top">
+                        <div class="module-container-name-shadow"></div>
+                        <div class="module-container-name-group clearfix">
+                        \{{#eq del 1}}
+                            <span class="status-group added active">{{t "cadModule.added"}}</span>
+                        \{{else}}
+                            <a href="javascript:void(0)" mdid="\{{mdId}}" class="status-group del active"
+></a>
+                        \{{/eq}}
+                            <!-- 此处若是可删除模块则显示删除按钮，否则显示已添加 -->
+                            <span class="module-name" md-name="\{{mdName}}" md-ver="\{{mdVer}}" md-des
+="\{{mdDescription}}" md-info="\{{mdInfo}}" md-platform="\{{mdPlatform}}">\{{mdName}}</span>
+                        </div>
+                        <div class="module-hot">
+                            <i class="icon-hot"></i>
+                            <span class="module-hot-count">\{{num}}</span>
+                        </div>
+                        <p class="module-brief">
+                            \{{#if ../i18nlng}}
+                                \{{enInfo}}
+                                <span>
+                                \{{#if conflict}}
+                                \{{conflict}}
+                                \{{/if}}
+                                </span>
+                            \{{else}}
+                                \{{mdInfo}}
+                                <span>
+                                \{{#if conflict}}
+                                \{{conflict}}
+                                \{{/if}}
+                                </span>
+                            \{{/if}}
+                        </p>
+                    </div>
+                    <div class="module-container-right-bottom">
+                        <div class="platform-group">
+                            \{{#eq mdPlatform 2}}
+                            <i class="icon-android"></i>
+                            <i class="icon-apple"></i>
+                            \{{/eq}}
+                            \{{#eq mdPlatform 0}}
+                            <i class="icon-apple"></i>
+                            \{{/eq}}
+                            \{{#eq mdPlatform 1}}
+                            <i class="icon-android"></i>
+                            \{{/eq}}
+                        </div>
+                        \{{#if key_id}}
+                        <div class="price-group bought">
+                            <span class="done">{{t "cadModule.Licenced"}}</span>
+                        \{{else}}
+                        <div class="price-group">
+                            \{{#if isfree}}
+                            <span class="done block">{{t "moduleStore.free"}}</span>
+                            \{{else}}
+                            <span class="price">￥\{{price}}</span>
+                            <span class="btn-buy">{{t "cadModule.Licence"}}</span>
+                            <span class="done">{{t "cadModule.Licenced"}}</span>
+                            \{{/if}}
+                        \{{/if}}
+                        </div>
+                        <div class="module-auth-form-box">
+                            <form class="module-auth-form" method="post">
+                                <div class="module-input-group">
+                                    <input type="button" class="btn-cancel" value="{{t 'cadModule.cancel'}}">
+                                    <input type="submit" class="btn-submit" value="{{t 'cadModule.ok'}}">
+                                    <div class="module-auth-input-box">
+                                        <input type="text" class="module-auth-input" name="module-auth-input"      placeholder="{{t 'cadModule.note2_1'}}">
+                                    </div>
+                                </div>
+                                <div class="module-auth-tips-box">
+                                    <span>{{t "cadModule.note2_2"}}</span>
+                                    <a href="\{{taobao_url}}" target="_blank" >{{t "cadModule.note2_3"}}</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        \{{/each}}
+    </script>
+    <!-- 模块详情 -->
+    <div id="mod_detail_modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <div class="img-box">
+                        <img class="img" src="../assets/images/default.jpg" alt="">
+                    </div>
+                    <div class="mod_detail_des">
+                        <span class="mod_detail_name">
+                            <!-- coverFlowImage -->
+                        </span>
+                        <div class="mod_detail_des_group clearfix">
+                            <div class="module-hot">
+                                <i class="icon-hot"></i>
+                                <span class="module-hot-count"><!-- 已有3333个App使用 --></span>
+                            </div>
+                            <span class="split"></span>
+                            <div class="platform-group">
+                                <i class="icon-android"></i>
+                                <i class="icon-apple active"></i>
+                                <span class="mod_detail_platform"><!-- 支持Android及iOS --></span>
+                            </div>
+                            <span class="split"></span>
+                            <span class="price free"><!-- 免费 --></span>
+                            <a href="javascript:void(0)" class="go_tb_url" target="_blank">{{t "moduleStore.note1_1"}}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div id="">
+                        <div class="mod_detail_box_left">
+                            <div class="mod_pub_prev_box">
+                                <div class="mod_detail_carousel">   
+                                    <ul class="bxslider">
+                                        <li>
+                                            <div class="prev_box">
+                                                <img src="../assets/images/client.png" alt="" class="prev_page"
+>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mod_detail_box_right">
+                            <div class="mod_detail_box_right_top">
+                                <span class="mod_detail_title">
+                                    <!-- 模块概述 -->
+                                    {{t "moduleStore.module_description"}}
+                                </span>
+                                <p class="mod_detail_details">
+                                    <!-- 本字符实体参考手册包括了数学符号、希腊字符、各种箭头记号、科技符号以及形状。 -->
+                                </p>
+                                <a href="javascript:void(0)" class="go_mod_doc" target="_blank">
+                                    <i class="icon-file-text-alt"></i>
+                                    {{t "moduleStore.read_the_module_doc"}}
+                                </a>
+                            </div>
+                            <div class="mod_detail_box_right_bottom">
+                                <div class="mod_detail_row">
+                                    <span>{{t "moduleStore.version"}}：</span><span class="version content"
+><!-- v0.2.1 --></span>
+                                </div>
+                                <div class="mod_detail_row">
+                                    <span>{{t "moduleStore.provider"}}：</span><span class="author content"
+><!-- APICloud --></span>
+                                </div>
+                                <div class="mod_detail_row">
+                                    <span>{{t "moduleStore.last_updated_on"}}：</span><span class="update
+ content"><!-- 2014年12月12日 --></span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+                </div> -->
+            </div><!-- /.modal-content --> 
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal --> 
+</div>

@@ -1,0 +1,154 @@
+﻿<link rel="stylesheet" type="text/css" href="../assets/css/totalbase.css" />
+<link rel="stylesheet" type="text/css" href="../libs/daterangepicker/daterangepicker-bs3.css"/>
+<style type="text/css">
+    #detailsTable{
+        border-top: 1px solid #ccc;
+        padding-top: 4px;
+    }
+    .newEventBox{
+        border-top: 1px solid #ddd;
+        overflow: hidden;
+        padding: 20px;
+    }
+    .label-right{
+        color: #989898;
+        padding-right: 0;
+        padding-top: 9px;
+        text-align: right;
+    }
+    #newEvent {
+        color: #4d7cb6;
+        margin-left: 40px;
+        margin-right: 20px;
+    }
+    .listeditor{
+        color: #4d8ceb;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .listdelete{
+        color: rgb(236, 125, 56);
+        font-weight: bold;
+        cursor: pointer;
+        margin-left: 15px;
+    }
+    .popover-title{
+        display: none;
+    }
+    .popover {
+        display: none;
+        max-width: 400px;
+    }
+    .popover.bottom > .arrow {
+        left: auto;
+        right: 14px;
+    }
+    .popover-content {
+        padding: 25px 14px;
+    }
+    .form-group {
+        display: block;
+        margin-bottom: 15px;
+        overflow: hidden;
+    }
+    .control-label {
+        padding-right: 0;
+        padding-top: 9px;
+        text-align: right;
+    }
+    #single-popover .btns .cancel {
+        margin-right: 20px;
+    }
+    #single-popover .btns .sure{
+        margin-right: 14px;
+    }
+    #single-popover .btns .btn {
+        padding-left: 26px;
+        padding-right: 26px;
+    }
+    #soon{
+        width: 100%;
+        height: 500px;
+		line-height: 500px;
+		text-align:center;
+		color:#3598db;
+		font-size: 24px;
+		font-family: '楷体';
+    }
+</style>
+
+<div class="panel">
+    <div class="panel-header">
+        <table>
+            <tr>
+                <th><div class="topselect"></div><a href="../module/total">{{t "Total.AppData"}}</a></th>
+                <th> <div class="topselect"></div><a href="../module/total-version">{{t "Total.VersionData"}}</a></th>
+                <th> <div class="topselect"></div><a href="../module/total-area">{{t "Total.LocationDistribution"}}</a></th>
+                <th> <div class="topselect"></div><a href="../module/total-terminal">{{t "Total.DeviceData"}}</a></th>
+                <th> <div class="topselect"></div><a href="../module/total-error">{{t "Total.ErrorReport"}}</a></th>
+                <th class="active"> <div class="topselect"></div><a href="javascript:void(0)">{{t "Total.CustomEvent"}}</a></th>
+            </tr>
+        </table>
+    </div>
+    <div class="panel-body">
+        <div id="soon">暂无数据....</div>
+       <!--<div class="pull-right">-->
+        <!--<table>-->
+            <!--<tr>-->
+                <!--<td>-->
+                    <!--<div class="input-group">-->
+                        <!--<input type="text" id="text-picker" class="form-control" style="width:212px
+;display:inline-block;">-->
+                        <!--<div class="input-group-addon group-date"><i class="glyphicon glyphicon-calendar"
+></i></div>-->
+                    <!--</div>-->
+                <!--</td>-->
+                <!--<td>&nbsp;&nbsp;&nbsp;</td>-->
+                <!--<td>-->
+                    <!--<a id="newEvent" href="javascript:void(0)">新增事件</a>-->
+                <!--</td>-->
+            <!--</tr>-->
+        <!--</table>       -->
+       <!--</div>-->
+    </div>
+   <!--<div class="newEventBox" style="display:none;">-->
+        <!--<div class="col-md-10">-->
+            <!--<div class="row" style="display: inline;">-->
+                <!--<label class="col-md-1 label-right">事件ID</label>-->
+                <!--<div class="col-md-3">-->
+                    <!--<input type="text" class="form-control">-->
+                <!--</div>-->
+                <!--<label class="col-md-1 label-right">事件名称</label>-->
+                <!--<div class="col-md-3">-->
+                    <!--<input type="text" class="form-control">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-2">-->
+            <!--<input type="submit" value="添加" class="btn btn-blue btn-block add">-->
+            <!--<a class="btn btn-default btn-block cancel" href="javascript:void(0)">取消</a>-->
+        <!--</div>-->
+   <!--</div>    -->
+    <!--<div id="detailsTable">-->
+        <!--<table class="table table-hover table-striped">-->
+            <!--<thead>-->
+                <!--<tr>-->
+                    <!--<th>事件ID</th>-->
+                    <!--<th>事件名称</th>-->
+                    <!--<th>今日消息数</th>-->
+                    <!--<th>昨日消息数</th>-->
+                    <!--<th>自定义时段消息数</th>-->
+                    <!--<th></th>-->
+                <!--</tr>-->
+            <!--</thead>-->
+           <!--<tbody>                                                          -->
+           <!--</tbody>-->
+        <!--</table>-->
+        <!--<div style="text-align:center">-->
+            <!--<div id="Pagination"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+<script type="text/javascript">
+    {{{jsfunc}}}
+</script>

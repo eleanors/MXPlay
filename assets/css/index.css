@@ -1,0 +1,166 @@
+a {
+	color: #609be3;
+}
+
+p {
+	line-height: 2;
+}
+
+body {
+	background-color: #fafafa;
+}
+
+.header {
+	background-color: #fff;
+	border-bottom: 1px solid #ececec;
+	box-shadow: 0 0px 12px #ececec;
+	color: #8b8c8a;
+	overflow: hidden;
+}
+
+.header .navbar-text {
+	font-size: 14px;
+	height: 66px;
+	line-height: 66px;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	width: 100%;
+}
+
+.header .container-fluid {
+	padding: 0 20px;
+}
+
+.header a {
+	color: #8b8c8a;
+	margin: 0 20px;
+}
+
+.header a:hover {
+	text-decoration: underline;
+}
+
+.header .logo {
+	background: rgba(0, 0, 0, 0) url("../images/logo.png") no-repeat scroll left center;
+	display: block;
+	height: 66px;
+	line-height: 66px;
+	min-width: 176px;
+	text-indent: -9999px;
+}
+
+.link-group {
+	display: none;
+	height: 66px;
+	padding: 0;
+	text-align: center;
+}
+
+.header .link-group a, .header .link-group span {
+	color: #ababab;
+	display: inline-block;
+	height: 66px;
+	line-height: 66px;
+	margin: 0;
+}
+
+@media (max-width: 520px) {
+	body.page-home {
+	}
+
+	.index-doc {
+	}
+
+	.index-ide, .index-config, .index-mod, .index-db, .index-sdk, .index-download {
+	}
+
+	#overview a, #overview .intro, #overview .title {
+		font-size: 0;
+	}
+
+	.container-fluid .col-sm-8, .container-fluid .col-sm-10 {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.navbar-text {
+		height: 0 !important;
+		overflow: hidden;
+		transition: height 0.25s ease 0s;
+	}
+
+	.navbar-text.active {
+		height: 66px !important;
+	}
+
+	.navbar-text a {
+		margin: 0 1px;
+	}
+
+	.header .logo {
+		background-position: center center;
+	}
+
+	.nav-btn {
+		background: rgba(0, 0, 0, 0) url("/img/mobile/nav-btn.png") no-repeat scroll center center / 20px 10px;
+		height: 20px;
+		left: 20px;
+		position: absolute;
+		top: 24px;
+		width: 20px;
+	}
+
+	.nav-btn.close {
+		background-attachment: scroll;
+		background-clip: border-box;
+		background-color: rgba(0, 0, 0, 0);
+		background-image: url("/img/mobile/nav-close.png");
+		background-origin: padding-box;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: 16px 16px !important;
+	}
+
+	.footer .copyright {
+		display: block;
+		margin: 20px auto;
+		text-align: center;
+		width: 100%;
+	}
+
+	.ds-thread {
+		overflow: hidden !important;
+	}
+
+	.outline a {
+		width: 100%;
+	}
+
+	a, code, ul li, p {
+		white-space: normal;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

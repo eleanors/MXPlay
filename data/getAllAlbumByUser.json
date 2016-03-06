@@ -1,0 +1,24 @@
+﻿{
+  "status": 1,
+  "msg": "成功！",
+  "body": [
+    {
+      "appId": "A6980695652846",
+      "appName": "FM",
+      "validStatus": null,
+      "type": 0,
+      "iconUrl": null,
+      "mcmOpened": 1,
+      "appType": 0
+    },
+    {
+      "appId": "A6980683334730",
+      "appName": "HelloApp",
+      "validStatus": null,
+      "type": 0,
+      "iconUrl": null,
+      "mcmOpened": 0,
+      "appType": -1
+    }
+  ]
+}

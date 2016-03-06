@@ -1,0 +1,51 @@
+﻿{
+  "status": 1,
+    "statusCode": 200,
+  "result": {
+    "appId": "A6980695652846",
+    "appName": "FM",
+    "appKey": "39F095B5-1CEF-70AD-9676-C2ED0D795F68",
+    "appCreateDate": "2015-06-24T10:01:47.000Z",
+    "appInfo": "",
+    "appType": 0,
+    "createAppMsm": 0,
+    "appIcon": "http://localhost/mxplay/data/img/01.jpg",
+    "userType": 0,
+    "svnInnerIp": "10.124.156.225",
+    "userCount": 0,
+    "smAuthority": {
+      "msTime": null,
+      "msNet": null,
+      "msLocation": null,
+      "msEtc": null,
+      "manuAuth": null
+    },
+    "smWaitValidateCount": 0,
+    "smValidatedCount": 0,
+    "members": [
+      {
+        "userName": "441656497",
+        "loginTime": 1451708967003,
+        "type": 0,
+        "icon2": "http://localhost/mxplay/data/img/02.jpg"
+      }
+    ],
+    "appStatus": "000110",
+    "androidPkgName": "com.apicloud.A6980695652846",
+    "iosPkgName": "com.apicloud.testapp",
+    "creator": "441656497",
+    "mcmOpened": 1,
+    "baiduKey": {
+      "SHA1": "0B:13:25:D7:85:46:0A:67:12:F3:29:88:64:56:63:10:7A:9C:C4:59",
+      "date": "2014-3-3"
+    },
+    "mcmStatistics": {
+      "trafficSize": 0,
+      "fileSize": 0,
+      "dbSize": 0,
+      "serverdAll": 0,
+      "failedAll": 0
+    },
+    "pushCount": 0
+  }
+}

@@ -1,0 +1,117 @@
+.btn{
+    font-size: 12px;
+}
+.panel-header>table{
+    width: 100%;
+}
+.panel-header>table th{
+    text-align: center;
+    border-left: solid 1px #cccccc;
+    border-bottom: solid 1px #cccccc;
+    font-size: 14px;
+   
+    padding: 25px 0;
+    position: relative;
+}
+.panel-header>table th a{
+    cursor: pointer;
+    display: block;
+    color: #81867c;
+    font-weight: normal;
+}
+.panel-header>table th:first-child{
+    border-left: none;
+}
+.panel-header>table th.active .topselect{
+    width: 100%;
+    height: 0;
+    border: 2px solid #3498db;
+    position: absolute;
+    top: 0;
+}
+.panel-header>table th.active a{
+    color: #3498db;
+}
+.toptip{
+    font-size: 14px;
+    text-align: center;  
+    color: #61685b  
+}
+.btn-custom-default:hover, .btn-custom-default:active, .btn-custom-default.active {
+     background-color: #4d7bb6;
+     border-left:solid 1px #4d7bb6;
+    color: white;
+}
+.group-date{
+    background-color: #4d7bb6;
+    border: 1px solid #4d7bb6;
+    color: white;
+}
+.btn-custom-default{
+    background-color: #f7f9fc;
+    border-left:solid 1px #dfe2e8;
+    color: #989ca2;
+}
+
+
+#detailsTable .table > thead > tr > th, 
+#detailsTable .table > tbody > tr > th, 
+#detailsTable .table > tfoot > tr > th, 
+#detailsTable .table > thead > tr > td, 
+#detailsTable .table > tbody > tr > td,
+#detailsTable .table > tfoot > tr > td{
+    padding: 12px;
+    border-top: none;
+    color: #858585;
+}
+#detailsTable .table > thead > tr > th:first-child,#detailsTable .table > tbody > tr > td:first-child {
+    padding-left: 60px;
+}
+#detailsTable .table > thead > tr > th{
+    font-weight: normal;
+    border-bottom: 1px solid #ddd;
+}
+.pagination span.current{
+    background: url("../../images/pagepoint.png") no-repeat center 0;
+    color: #5082c2;
+    font-weight: bold;
+}
+#detailsTable .prev {
+    background: url("../../images/pagepn.png") no-repeat scroll 0 -21px;
+    display: inline-block;
+    height: 21px;
+    width: 21px;
+    margin-right: 10px;
+}
+#detailsTable .prev.current{
+    background-position: 0 0;
+}
+#detailsTable .next {
+    background: url("../../images/pagepn.png") no-repeat scroll -21px -21px;
+    display: inline-block;
+    height: 21px;
+    width: 21px;
+    margin-left: 10px;
+}
+ #detailsTable .next.current{
+    background-position: -21px 0;
+}
+#detailsTable table{
+    border-bottom: solid 1px #ddd;
+}
+#detailsTable .pagination a,#detailsTable .pagination span{
+    cursor: pointer;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0px 7px;
+}
+
+#detailsTable .pagination{
+    margin: 0 0 20px 0;
+}
+.btn-group > .btn-custom-default:first-child{
+    border-left: none;
+}

@@ -1,0 +1,31 @@
+﻿{
+  "status": 1,
+  "msg": "成功",
+  "body": [
+    {
+      "mdId": 341,
+      "mdName": "arcMenu"
+    },
+    {
+      "mdId": 361,
+      "mdName": "mam"
+    },
+    {
+      "mdId": 362,
+      "mdName": "mcm"
+    },
+    {
+      "mdId": 371,
+      "mdName": "push"
+    },
+    {
+      "mdId": 697,
+      "mdName": "listView"
+    },
+    {
+      "mdId": 723,
+      "mdName": "personalCenter"
+    }
+  ],
+  "code": 301
+}

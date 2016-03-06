@@ -1,0 +1,31 @@
+@media (max-width:1200px){
+    #menu,#menu-shadow{
+        width: 50px;
+    }
+    #menu .logo{
+        display: none;
+    }
+    #menu .logoWrap{
+        text-align: center;
+    }
+    #menu .toggle-menu{
+        position: static; height: 44px; background-position: center center;
+    }
+    #menu .overview{
+        padding-left: 0; 
+    }
+    #menu .overview a{
+        display: block; text-indent: -9999px; background: url(/img/overview.png) no-repeat center center;
+    }
+    #menu .overview a:hover{
+        background: #f7faf9 url(/img/overview-l.png) no-repeat center center;
+        border-bottom: 1px solid #e3e3e3;
+    }
+    #menu dt{
+        display: none;
+    }
+    #menu li a{
+        padding-left: 0; background-position: 15px center; text-indent: -9999px;
+    }
+}
+

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="libs/bootstrap/bootstrap.css" />
+<link rel="stylesheet" href="assets/font-awesome/font-awesome.css" />
+<!--[if IE 7]>
+<link rel="stylesheet" href="assets/font-awesome/font-awesome-ie7.min.css">
+<![endif]-->
+<link rel="stylesheet" href="assets/css/base.css" />
+<link rel="stylesheet" href="assets/css/console.css" />
+<link rel="stylesheet" href="assets/css/index.css" />
+
+<script src="libs/requirejs/require.js"></script>
+
+</head>
+
+<body>
+<div id="console">
+      <header class="header">
+            <div class="container-fluid">
+                     <div class="row">
+                              <div class="col-md-2"><a class="logo" href="# ">APICloud Docs</a></div>
+                              <div class="col-md-8">
+                                   <p class="navbar-text">
+                                 		<a target="_blank" href="">发现音乐</a>
+                                        <a target="_blank" href="">我的音乐</a>
+                                        <a target="_blank" href="">排行榜</a>
+                                        <a target="_blank" href="">社区</a>
+                                   </p> 
+                              </div>
+                              <div class="col-md-2">
+                              		<div id="reg-log" class="link-group" style="display: block;">
+                                            <a href="" target="_blank" class="icon-twitter">注册</a>
+                                            <span>|</span>
+                                            <a href="" target="_blank">登录</a>
+                                    </div>
+                              </div>
+                     </div>
+            </div>
+      
+      </header>
+      
+      
+      <div class="main clearfix">
+                <div class="main-left">
+                <!-- 这部分因该是动态加载的呀，不该是写好的才对 -->
+                    <div class="main-applist-out">
+                        <dl>
+                            <dt>
+                                <button id="createApp" class="btn btn-blue" data-phone="123"><i class="icon icon-plus"></i>创建应用</button>
+                            </dt>
+                            <!-- <dd class="isLoading">
+                                <img src="/img/loading_pre.gif" alt="数据加载中">
+                                数据加载中
+                            </dd> -->
+                            
+                            <dd appid="A6980695652846" class="clearfix app">
+                                <div class="dd-left">
+                                    <img title="FM" alt="FM" src="data/img/01.jpg">
+                                </div>
+                                <div class="dd-right">
+                                    <h5>热门推荐</h5>
+                                    <span>新增：0</span>
+                                    <span>活跃：0</span>
+                                </div>
+                            </dd>
+                            
+                            <dd appid="A6980683334730" class="clearfix app">
+                                <div class="dd-left">
+                                    
+                                    <img title="HelloApp" alt="HelloApp" src="data/img/02.jpg">
+                                    
+                                </div>
+                                <div class="dd-right">
+                                    <h5>个性推荐</h5>
+                                    <span>新增：0</span>
+                                    <span>活跃：0</span>
+                                    
+                                </div>
+                            </dd>
+                            
+                            <dd appid="A6980683334730" class="clearfix app">
+                                <div class="dd-left">
+                                    
+                                    <img title="HelloApp" alt="HelloApp" src="data/img/03.jpg">
+                                    
+                                </div>
+                                <div class="dd-right">
+                                    <h5>新碟上架</h5>
+                                    <span>新增：0</span>
+                                    <span>活跃：0</span>
+                                    
+                                </div>
+                            </dd>
+                            
+                            
+                        </dl>
+                        <!-- 加载更多的js在哪 -->
+                        <div class="loading-more-out">
+                            <a class="loading-more" href="javascript:void(0)">查看更多</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-right">
+                    
+                </div>
+                <div class="main-center">
+    
+				</div>
+            </div>
+      
+</div>
+     
+
+<script type="text/javascript">
+require.config({
+     baseUrl: './libs/',	
+	 
+     urlArgs: "v=" + (new Date()).getTime(),
+	
+	 paths: {
+		    'jquery': 'jquery/jquery-1.10.2',
+            "jqueryui": "jquery/jquery-ui.min",
+			"cookie":"jquery/jquery.cookie",
+		    'mootools': 'mootools/mootools',
+		    'artTemplate': 'artTemplate/template',
+		    'bootstrap': 'bootstrap/bootstrap.min',
+		    'modernizr': 'modernizr/modernizr',
+		    'Handlebars': 'handlebars',
+			"i18next": "i18next/i18next",
+			"request": "browser-request/request",
+			"async": 'browser-request/async',
+			"ie-shim": 'ie-shim/ie-shim',
+            "placeholder": "jquery/placeholder",
+            "validate": "jquery/jquery.validate.min",
+	 },
+	 
+	 shim: {
+		 
+		    'bootstrap': {
+			      deps: ['jquery']	
+			}
+		 
+	 }
+})
+
+require(['../module/console/console-layout'])
+     
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿{
+    "st": 1,
+    "msg": [
+        {
+            "reportDate": 1452652555426,
+            "newRegsCount": 200,
+            "devicesCount": 554,
+            "activeCountInToday": 499,
+            "todayOperationCount": 62225,
+            "todayUsingTime": 6552
+        },
+        {
+            "reportDate": 1452652555426,
+            "newRegsCount": 200,
+            "devicesCount": 33455,
+            "activeCountInToday": 499,
+            "todayOperationCount": 62225,
+            "todayUsingTime": 1425545463552
+        },
+        {
+            "reportDate": 1452652555426,
+            "newRegsCount": 3500,
+            "devicesCount": 534545,
+            "activeCountInToday": 434539,
+            "todayOperationCount": 634525,
+            "todayUsingTime": 142555563552
+        },
+        {
+            "reportDate": 1452345455426,
+            "newRegsCount": 3500,
+            "devicesCount": 2345,
+            "activeCountInToday": 46759,
+            "todayOperationCount": 634565,
+            "todayUsingTime": 142563256555
+        }
+    ],
+    "statusCode": 200,
+    "body": []
+}

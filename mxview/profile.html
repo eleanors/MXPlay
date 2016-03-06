@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>账户设置</title>
+
+		<link rel="stylesheet" href="../libs/bootstrap/bootstrap.css" />
+		<link rel="stylesheet" href="../assets/font-awesome/font-awesome.css" />
+        <link rel="stylesheet" href="../assets/css/base.css">
+        <link rel="stylesheet" href="../assets/css/console.css">
+        <link rel="stylesheet" href="../assets/css/start.css">
+		<script src="../libs/requirejs/require.js"></script>
+        <!--[if lt IE 9]>
+            <script src="/libs/ie/html5shiv.js"></script>
+        <![endif]-->
+        <!--baidu statistics-->
+    </head>
+    <body class="forConsole">
+        <div id="console">
+            <div class="header">
+                <a href="/" class="logo-link logo" title="">
+                <!-- href 属性"/"就代表链接到首页？？ -->
+                    <!-- <img src="" alt="logo" title="logo" class="logo"> -->
+                </a>
+                <ul class="notification-menu">
+                    <li>
+                        <img class="avatar" id="my_photo_icon" src="">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="userName">
+                            <span></span><span class="arr-b"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <!-- <li><a href="/msm/message.html"><i class="fa icon-envelope-alt"></i>我的消息</a></li> -->
+                            <li><a href="/console" id="toConsole"><i class="fa icon-tasks"></i>控制台</a></li>
+                            <li><a href="/module_pub_history"><i class="fa icon-mod"></i>模块管理</a></li>
+                            <!-- <li><a href="/tpl-manage"><i class="fa icon-tpl"></i>模版管理</a></li> -->
+                            <li><a href="/profile"><i class="fa icon-cog"></i>设置</a></li>
+                            <li id="sign_out"><a href="javascript:void(0)"><i class="fa icon-signout"></i>退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="submenu">
+                    <!-- <a href="/console" id="toConsole">控制台</a> -->
+                    <a href="/member">协作</a>
+                    <a href="http://docs.apicloud.com/" target="_blank">文档</a>
+                    <a href="http://community.apicloud.com/bbs/" target="_blank">社区</a>
+                    <a href="/modulestore" target="_blank" id="toModStore">模块Store</a>
+                </div>
+            </div>
+            <div class="main clearfix">
+                <div class="main-left">
+                <!-- 这部分因该是动态加载的呀，不该是写好的才对 -->
+                    <div class="main-applist-out">
+                        <dl>
+                            <dt>
+                                <button class="btn btn-blue" id="createApp"><i class="icon icon-plus"></i>创建应用</button>
+                            </dt>
+                            <!-- <dd class="isLoading">
+                                <img src="/img/loading_pre.gif" alt="数据加载中">
+                                数据加载中
+                            </dd> -->
+                            
+                            <dd class="clearfix app" appid="A6980695652846">
+                                <div class="dd-left">
+                                    
+                                    <img src="" alt="" title="">
+                                    
+                                </div>
+                                <div class="dd-right">
+                                    <h5>FM</h5>
+                                    
+                                    <span>新增：0</span>
+                                    
+                                    
+                                    <span>活跃：0</span>
+                                    
+                                </div>
+                            </dd>
+                            
+                            <dd class="clearfix app" appid="A6980683334730">
+                                <div class="dd-left">
+                                    
+                                    <img src="" alt="" title="">
+                                    
+                                </div>
+                                <div class="dd-right">
+                                    <h5>HelloApp</h5>
+                                    
+                                    <span>新增：0</span>
+                                    
+                                    
+                                    <span>活跃：0</span>
+                                    
+                                </div>
+                            </dd>
+                            
+                            
+                        </dl>
+                        <!-- 加载更多的js在哪 -->
+                        <div class="loading-more-out">
+                            <a href="javascript:void(0)" class="loading-more">查看更多</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-right">
+                    <!-- <div class="update-out">
+                        
+                    </div> -->
+                    <div class="ide-out">
+                        <a class="sobot" target="_blank" href="http://www.sobot.com/chat/robot.action?sysNum=711a30d9a44d41509daa25945045c118">
+                            <img src="" />
+                        </a>
+                        <img src="" alt="ide" title="ide" class="main-right-icon ide-icon">
+                        <label class="main-right-contents">
+                            SDK 是 APICloud 提供给应用开发者的软件开发工具包，包括开发工具、文档、实例代码、基础工程等。
+                        </label>
+                        <a target="_blank" href="http://docs.apicloud.com/APICloud/download" class="btn btn-default">
+                            下载
+                        </a>
+                    </div>
+                    <div class="ide-out">
+                        <img src="" alt="app" title="app" class="main-right-icon ide-icon">
+                        <label class="main-right-contents">
+                            下载'APICloud Demo'到手机中，真实体验APICloud平台开发的应用效果
+                        </label>
+                        <a href="javascript:void(0)" id="download-o2o-btn" class="btn btn-default">
+                            下载
+                        </a>
+                        <br/>
+                        <a target="_blank" href="http://docs.apicloud.com/APICloud/videos-and-codes" class="video-loading-more">
+                            查看更多
+                        </a>
+                    </div>
+                    <div class="video-out">
+                        <img src="" alt="ide" title="ide" class="main-right-icon ide-icon">
+                        <label class="main-right-contents">
+                            视频教程将为您详细介绍如何使用APICloud Studio工具开发移动应用
+                        </label>
+                        <a class="btn btn-default" href="http://docs.apicloud.com/APICloud/videos-and-codes" target="_blank">
+                            观看视频
+                        </a>
+                    </div>
+                    
+                    <div class="main-right-54">
+                        <a target="_blank" href="http://docs.apicloud.com/">帮助文档</a>
+                    </div>
+                    <div class="main-right-54">
+                    <a target="_blank" href="http://community.apicloud.com/bbs/forum.php?mod=forumdisplay&fid=37&filter=typeid&typeid=24">建议反馈</a>
+                    </div>
+                    
+                </div>
+                <div class="main-center">
+                    <link rel="stylesheet" type="text/css" href="../assets/css/profile.css" />
+					<link rel="stylesheet" type="text/css" href="../libs/jquery/jquery.Jcrop.min.css" />
+					<link rel="stylesheet" type="text/css" href="../libs/webuploader/webuploader.css" />
+					<div class="panel panel-profile">  
+ <div class="header clearfix">
+        <h5 class="pull-left">
+            基本信息
+        </h5>
+    </div>
+    <form id="profile-basic-form" class="panel-body panel-body-profile clearfix">
+        <div class="row">
+            <div class="col-lg-5 div-left ">
+                <div class="row clearfix">
+                    <div class="col-md-4 text-right">
+                        
+                        <img id="my_photo" src="" width="65" height="65" alt='我的头像' title='我的头像'>
+                        
+                    </div>
+                    <label id="my_userId" class="col-md-8"></label>
+                </div>
+                <div class="row clearfix" style="margin-top:20px;">
+                    <label class="col-md-3 text-right">
+                        昵称：</label>
+                    <div class="col-md-8">
+                        <input disabled class="form-control" id="profile_userName" name="profile_userName" type="text" value="441656497" maxlength="24">
+                    </div> 
+                </div>
+                <div class="row clearfix" style="margin-top:20px;">
+                    <label class="col-md-3 text-right">
+                        真实姓名：
+                    </label>
+                    <div class="col-md-8">
+                        <input class="form-control" id="profile_realName" name="profile_realName" type="text" value="API" maxlength="24">
+                    </div> 
+                </div>
+                <!-- <div class="row required-label clearfix">
+                    <label class="col-md-3"></label>
+                    <label class="col-md-9">
+                        *模块开发者必填
+                    </label>
+                </div> -->
+                <div class="row clearfix">
+                    <label class="col-md-3 text-right">QQ：</label>
+                    <div class="col-md-8">
+                        <input class="form-control" id="profile_qq" name="profile_qq" type="text" value="441656497" maxlength="20">
+                    </div> 
+                </div>
+                <!-- <div class="row required-label clearfix">
+                    <label class="col-md-3"></label>
+                    <label class="col-md-9">
+                        *模块开发者必填
+                    </label>
+                </div> -->
+                <div class="row clearfix">
+                    <label class="col-md-3 text-right">*手机号<!-- 电话： --></label>
+                    <div class="col-md-8">
+                        <div class="box-for-a-btn">
+                            <input class="form-control" id="profile_phone" name="profile_phone" type="text" value="123" maxlength="20" placeholder="请完善您的手机号码" disabled>
+                            <span id="modify_mobile" class="a-btn">修改</span>
+                        </div>
+                        
+                    </div> 
+
+                </div>
+                <!-- <div class="row required-label clearfix">
+                    <label class="col-md-3"></label>
+                    <label class="col-md-9">
+                        *模块开发者必填
+                    </label>
+                </div> -->
+                <div class="row clearfix">
+                    <label class="col-md-3 text-right">公司：</label>
+                    <div class="col-md-8">
+                        <input class="form-control" id="profile_enterName" name="profile_enterName" type="text" value="" maxlength="50">
+                    </div> 
+                </div>
+                <div class="row clearfix">
+                    <label class="col-md-3 text-right">支付宝账号</label>
+                    <div class="col-md-8">
+                        <input class="form-control" id="profile_alipay_account" name="profile_alipay_account" type="text" value="" maxlength="50">
+                    </div> 
+                </div>
+                <div class="row required-label clearfix">
+                    <label class="col-md-3"></label>
+                    <label class="col-md-9">
+                        *收费模块开发者必填
+                    </label>
+                </div>
+                <div class="row clearfix left-row-bottom">
+                    <label class="col-md-3 text-right"></label>
+                    <button id="basic-form-profile-btn" type="submit" value='保存' class="btn btn-blue">保存
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-7 div-right">
+                <div class="col-md-5">
+                    <div class="row clearfix" style="margin-bottom:11px;">
+                        <i id="cover_profile">25%</i>
+                        <img id="upload-photo-profile" src="" url="" alt='头像裁剪' title='头像裁剪'>
+                    </div>
+                    <label for="upload-icon-profile" id="upload-label-profile" class="label-a-cert">
+                        上传头像
+                    </label>
+                </div>
+                <div class="col-md-7">
+                    <div class="row clearfix">
+                        <label style="position:relative;left:38px;">
+                            支持jpg，png格式，文件须小于2M
+                        </label>
+                    </div>
+                    <div class="row clearfix" id="imageGroups">
+                        <div class="left pull-left" style="position:relative;left:38px;">
+                            <label>180*180</label>
+                            <div class="img-container" style="width:180px;height:180px;">
+                                <div class="img-inner-container">
+                                    <img id="img-big-profile" src="/img/profile-middle.png" alt="" class="left">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-top pull-left" style="position: relative;left:60px;top:35px;">
+                            <label>30*30</label>
+                            <div class="img-container" style="width:30px;height:30px;">
+                                <div class="img-inner-container">
+                                    <img id="img-small-profile" src="" alt="" class="right-top">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-bottom pull-left" style="position: relative;left: 30px;top: 115px;">
+                            <label>65*65</label>
+                            <div class="img-container" style="width:65px;height:65px;">
+                                <div class="img-inner-container">
+                                    <img id="img-middle-profile" src="" alt="" class="right-bottom">
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div> 
+<div class="panel panel-profile">  
+    <div class="header clearfix">
+        <h5 class="pull-left">
+            账户安全
+        </h5>
+    </div>
+    <form id="profile-save-form" class="panel-body panel-body-profile clearfix">
+         <div class="row">
+             <div class="col-md-10 div-left">
+                 <div class="row clearfix">
+                    <label class="col-md-3 text-right">
+                        密码：</label>
+                    <div class="col-md-8">
+                        <input id="oldPwd" name="oldPwd" class="form-control" type="password">
+                    </div> 
+                </div>
+                <div class="row clearfix">
+                    <label class="col-md-3 text-right">
+                        新密码：
+                    </label>
+                    <div class="col-md-8">
+                        <input id="newPwd" name="newPwd" class="form-control" type="password">
+                    </div> 
+                </div>
+                <div class="row clearfix">
+                    <label class="col-md-3 text-right">
+                        确认新密码：</label>
+                    <div class="col-md-8">
+                        <input id="confirmPwd" name="confirmPwd" class="form-control" type="password">
+                    </div> 
+                </div>
+                <div class="row clearfix left-row-bottom">
+                    <label class="col-md-3 text-right"></label>
+                                
+                <input id="save-form-profile-btn" type="submit" value='保存' class="btn btn-blue">    
+                </div>
+             </div>
+         </div>
+    </form>
+</div>
+<!-- <div id="mobileForm_modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <span class="modal-title">手机号修改</span>
+            </div>
+            <div class="modal-body">
+                <form action="" id="mobileForm" class="clearfix">
+                    <div class="form-group forCodePhone">
+                        <input type="text" class="form-control" id="codePhoneNum" name="codePhoneNum" placeholder='请输入手机号码'>
+                        <i class="icon icon-mobile-phone"></i>
+                    </div>
+                    <div class="form-group clearfix code-phone" style="margin-bottom: 30px;">
+                        <div class="form-left">
+                        <button class="code-phone-btn btn-blue btn">
+                            <span id="code_phone_count">40</span>
+                            <span id="codeText" class="codeText">获取验证码</span>
+                        </button>
+                        <input type="text" class="form-control" id="codePhoneText" name="codePhoneText" placeholder="请输入手机验证码">
+                        <i class="icon icon-shield"></i>
+                        </div>
+                        <div class="form-right">
+                            
+                        </div>
+                    </div>
+                    <div class="form-group clearfix" style="margin-bottom: 0;">
+                        <button type="button" class="btn cancel">取消</button>
+                        <button type="submit" class="btn btn-blue ensure">确定</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>/.modal-content 
+    </div>/.modal-dialog
+</div>/.modal -->
+                </div>
+            </div>
+            <div class="footer">
+            
+            
+            </div>
+
+                <!-- <select name="" id="langSelect">
+                    <option value="zh-CN">中文简体</option>
+                    <option value="en-US">English</option>
+                </select> -->
+
+            </div>
+        </div>
+        <div id="guide-wrapper"></div>
+        <div id="guide-o2o-wrapper"></div>
+        <script id="applist-tpl" type="text/x-handlebars-template">
+        {{#each applist}}
+        <dd class="clearfix app" appid="{{appId}}">
+            <div class="dd-left">
+                {{#if iconUrl}}
+                <img src="{{iconUrl}}" alt="{{appName}}" title="{{appName}}">
+                {{else}}
+                <img src="../img/default.png" alt="{{appName}}" title="{{appName}}">
+                {{/if}}
+            </div>
+            <div class="dd-right">
+                <h5>{{appName}}{{#eq type 2}}*{{/eq}}</h5>
+                {{#if newUsersCount}}
+                <span>新增：{{newUsersCount}}</span>
+                {{else}}
+                <span>新增：0</span>
+                {{/if}}
+                {{#if activeUsersCount}}
+                <span>活跃：{{activeUsersCount}}</span>
+                {{else}}
+                <span>活跃：0</span>
+                {{/if}}
+            </div>
+        </dd>
+        {{/each}}
+        </script>
+        <script id="noAccrediTpl" type="text/x-handlebars-template">
+        {{#each applist}}
+
+        <dd class="clearfix" temid="{{temId}}">
+            <div class="dd-left">
+                {{#if icon_path}}
+                <img src="{{icon_path}}" alt="{{tlName}}" title="{{tlName}}">
+                {{else}}
+                <img src="../img/default.png" alt="{{tlName}}" title="{{tlName}}">
+                {{/if}}
+            </div>
+            <div class="dd-right">
+                <h5 data-info="{{tlInfo}}">{{tlName}}{{#eq type 2}}*{{/eq}}</h5>
+                <span class="no-accredit">待授权</span>
+                <span class="btn btn-primary tpl-accredit" data-url="{{taobao_url}}">授权</span>
+                <span class="tpl-dele"></span>
+            </div>
+        </dd>
+        {{/each}}
+        </script>
+        <div class="modalx">
+            <a href="javascript:void(0);" class="close"></a>
+            <div class="content">
+            </div>
+        </div>
+        <!--[if lt IE 10]>
+            <link rel="stylesheet" href="/css/ie.css">
+        <![endif]-->
+        <!--[if lt IE 8]>
+            <link rel="stylesheet" href="/fonts/font-awesome/css/font-awesome-ie7.min.css">
+            <link rel="stylesheet" href="/css/glyphicons-ie7.css">
+            <link rel="stylesheet" href="/css/ie7.css">
+        <![endif]-->
+
+<script type="text/javascript">
+	require.config({
+     	 baseUrl: '../libs/',	
+		 
+		 urlArgs: "v=" + (new Date()).getTime(),
+		
+		 paths: {
+				'jquery': 'jquery/jquery-1.10.2',
+				"cookie":"jquery/jquery.cookie",
+				'mootools': 'mootools/mootools',
+				'artTemplate': 'artTemplate/template',
+				'bootstrap': 'bootstrap/bootstrap.min',
+				'modernizr': 'modernizr/modernizr',
+				'Handlebars': 'handlebars',
+				"i18next": "i18next/i18next",
+				"request": "browser-request/request",
+				"async": 'browser-request/async',
+				"ie-shim": 'ie-shim/ie-shim',
+				
+				'page': 'page/page',
+				
+				"bootstrap": "bootstrap/bootstrap.min",
+				
+				"webuploader": 'webuploader/webuploader',
+				
+				"validate": "jquery/jquery.validate.min",
+				"jqueryui": "jquery/jquery-ui.min",
+				
+		 },
+		 
+		 shim: {
+			 
+				'bootstrap': {
+					  deps: ['jquery']	
+				}
+			 
+		 }
+	})
+
+	require(['../module/console-layout'])
+     
+</script>
+        </script>
+    </body>
+<iframe id="bbsLogin" style="display:none" src="/bbsLogin.html"></iframe>
+</html>

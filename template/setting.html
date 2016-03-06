@@ -1,0 +1,250 @@
+﻿<style>
+    .errorSolid{
+        border: solid 1px red;;
+    }
+    #topheader header{
+        height: 60px;
+    }
+    #topheader table{
+        float: left;
+        font-size: 14px;
+        height: 100%;
+        width: 240px;
+    }
+    #topheader th {
+        font-weight: 400;
+        text-align: left;
+        position: relative;
+        padding-left: 16px;
+    }
+    #topheader .pull-right{
+        margin-top: 20px;
+    }
+    #topheader   table th.active .topselect {
+        border: 2px solid #8fb300;
+        height: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    #topheader  table th.active a {
+        color: #8fb300;
+    }
+    .slipanel .panel-heading{
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 50px;
+        text-indent: 2em;
+    }
+    select{
+        height: 34px !important;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="../libs/switchButton/switchButton.css" />
+
+<div class="panel" id="topheader">
+    <header>
+        <table>
+            <tbody>
+            <tr>
+                <th>{{t "mcm.CloudSettings"}}</th>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="pull-right">
+            {{#if obj.isOpened}}
+                <input type="checkbox" checked="checked" class="js-switch-blue" id="openOrClose"/>
+            {{else}}
+                <input type="checkbox" class="js-switch-blue" id="openOrClose"/>
+            {{/if}}
+        </div>
+    </header>
+</div>
+<div class="panel" id="topheader">
+    <header>
+        <table>
+            <tbody>
+            <tr>
+                <th>{{t "mcm.SMSCertification"}}</th>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="pull-right">
+            <a href="http://docs.apicloud.com/%E4%BA%91API/sms-help" style="float:left;color:#4D7CB6;">{{t "mcm.baseHelp"}}</a>
+            {{#if obj.needSMS}}
+                <input type="checkbox" checked="checked" class="js-switch-blue" id="openOrCloseSMS"/>
+            {{else}}
+                <input type="checkbox" class="js-switch-blue" id="openOrCloseSMS"/>
+            {{/if}}
+        </div>
+    </header>
+    {{#if obj.needSMS}}
+        <form class="form-horizontal" role="form" id="baichuan" style="display: block">
+    {{else}}
+        <form class="form-horizontal" role="form" id="baichuan" style="display: none">
+    {{/if}}
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-md-3 control-label">App Key</label>
+
+                <div class="col-md-4">
+                    <input class="form-control" id="bcAppKey" name="bcAppKey" type="text" placeholder='{{t "mcm.appKey"}}' value="{{ obj.baichuan.app_key }}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">App Secret</label>
+
+                <div class="col-md-4">
+                    <input class="form-control" id="bcAppSecret" name="bcAppSecret" type="text" placeholder='{{t "mcm.appSecret"}}' value="{{obj.baichuan.secret}}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary btn-block btn-sm" type="submit">{{t "mcm.Save"}}</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">{{t "mcm.imageCode"}}</label>
+
+                <div class="col-md-4">
+                {{#if obj.needSMS}}
+                    {{#if obj.needImageCode}}
+                        <input type="checkbox" checked="checked" class="js-switch-blue" id="validationImageCode"/>
+                    {{else}}
+                        <input type="checkbox" class="js-switch-blue" id="validationImageCode"/>
+                    {{/if}}
+                {{else}}
+                    <input type="checkbox" class="js-switch-blue" id="validationImageCode"/>
+                {{/if}}
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="panel" id="topheader">
+    <header>
+        <table>
+            <tbody>
+            <tr>
+                <th>{{t "mcm.emailCertification"}}</th>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="pull-right">
+            {{#if obj.needEmail}}
+                <input type="checkbox" checked="checked" class="js-switch-blue" id="openOrCloseEmail"/>
+            {{else}}
+                <input type="checkbox" class="js-switch-blue" id="openOrCloseEmail"/>
+            {{/if}}
+        </div>
+    </header>
+    {{#if obj.needEmail}}
+        <form class="form-horizontal slipanel" role="form" id="emailInfo" style="display: block">
+    {{else}}
+        <form class="form-horizontal slipanel" role="form" id="emailInfo" style="display: none">
+    {{/if}}
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-md-3 control-label">{{t "mcm.EmialTip"}}</label>
+
+                <div class="col-md-4">
+                    <input class="form-control" id="emailSetting" type="text" placeholder='{{t "mcm.EmialTip"}}' value="{{obj.senderEmail}}"/>
+                </div>
+                <div class="col-md-1">
+                    <div id="emailSaveLoad" style="display: none;">
+                        <img src="../assets/images/input-spinner.gif" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">{{t "mcm.VerifyEmailAddress"}}</label>
+
+                <div class="col-md-4">
+                {{#if obj.needEmail}}
+                    {{#if obj.needVerify}}
+                        <input type="checkbox" checked="checked" class="js-switch-blue" id="validationEmail"/>
+                    {{else}}
+                        <input type="checkbox" class="js-switch-blue" id="validationEmail"/>
+                    {{/if}}
+                {{else}}
+                    <input type="checkbox" class="js-switch-blue" id="validationEmail"/>
+                {{/if}}
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{{#if obj.needEmail}}
+    {{#if obj.needVerify}}
+        <div class="panel slipanel" id="emailPanel" style="display: block">
+    {{else}}
+        <div class="panel slipanel" id="emailPanel" style="display: none">
+    {{/if}}
+{{else}}
+    <div class="panel slipanel" id="emailPanel" style="display: none">
+{{/if}}
+    <div class="panel-heading">
+        {{t "mcm.RegUserTemplate"}}
+    </div>
+    <form id="emailTemplateForm" class="form-horizontal" role="form">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-md-3 control-label">{{t "mcm.Subject"}}</label>
+
+                <div class="col-md-8">
+                    <input class="form-control" id="emailTitle" name="emailTitle" type="text" placeholder='{{t "mcm.yourSubject"}}' value="{{obj.verifySubject}}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">{{t "mcm.SubjectContent"}}</label>
+
+                <div class="col-md-8">
+                    <textarea class="form-control" id="emailContent" name="emailContent" rows="8">{{obj.verifyContent}}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary btn-block btn-sm" type="submit">{{t "mcm.Save"}}</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{{#if obj.needEmail}}
+    <div class="panel slipanel" style="display: block">
+{{else}}
+    <div class="panel slipanel" style="display: none">
+{{/if}}
+    <div class="panel-heading">
+        {{t "mcm.PasswordResetEmailTemplate"}}
+    </div>
+    <form id="passwordTemplateForm" class="form-horizontal" role="form">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-md-3 control-label">{{t "mcm.Subject"}}</label>
+
+                <div class="col-md-8">
+                    <input class="form-control" id="pwdTitle" name="pwdTitle" type="text" placeholder='{{t "mcm.yourSubject"}}' value="{{obj.resetSubject}}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">{{t "mcm.SubjectContent"}}</label>
+
+                <div class="col-md-8">
+                    <textarea class="form-control" id="pwdContent" name="pwdContent" rows="8">{{obj.resetContent}}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary btn-block btn-sm" type="submit">{{t "mcm.Save"}}</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

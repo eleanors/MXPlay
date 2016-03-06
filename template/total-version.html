@@ -1,0 +1,80 @@
+﻿<link rel="stylesheet" type="text/css" href="../assets/css/totalbase.css" />
+<style type="text/css">
+    #detailsTable{
+        border-top: 1px solid #ccc;
+        padding-top: 4px;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="../libs/daterangepicker/daterangepicker-bs3.css"/>
+
+<div class="panel">
+    <div class="panel-header">
+        <table>
+            <tr>
+                <th><div class="topselect"></div><a href="../module/total">{{t "Total.AppData"}}</a></th>
+                <th class="active"> <div class="topselect"></div><a href="javascript:void(0)">{{t "Total.VersionData"}}</a></th>
+                <th> <div class="topselect"></div><a href="../module/total-area">{{t "Total.LocationDistribution"}}</a></th>
+                <th> <div class="topselect"></div><a href="../module/total-terminal">{{t "Total.DeviceData"}}</a></th>
+                <th> <div class="topselect"></div><a href="../module/total-error">{{t "Total.ErrorReport"}}</a></th>
+                <th> <div class="topselect"></div><a href="../module/total-custom">{{t "Total.CustomEvent"}}</a></th>
+            </tr>
+        </table>
+        
+    </div>
+    <div class="panel-body">
+       <div class="pull-right">
+        <table>
+            <tr>
+                <td>
+                    <div class="btn-group">
+                        <button id="seventop" class="btn btn-custom-default active">{{t "global.Today"}}</button>
+                        <button id="thirtytop" class="btn btn-custom-default">{{t "global.Yestday"}}</button>
+                    </div>
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <div class="input-group">
+                         <div class="input-group-addon group-date"><i class="glyphicon glyphicon-calendar"></i></div>
+                        <input type="text" id="text-picker" class="form-control" style="width:212px;display:inline-block;">
+                    </div>
+                </td>
+            </tr>
+        </table>       
+       </div>
+    </div>
+    <div id="detailsTable">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>{{t "Total.Version"}}</th>
+                    <th>{{t "Total.TotalUsersOfThisVersionByToday"}}</th>
+                    <th>{{t "Total.NewUsers"}}</th>
+                    <th>{{t "Total.UpdateUsers"}}<i class="fa icon-question-sign" title='{{t  "Total.UpdateUsersTip"}}'></i></th>
+                    <th>{{t "Total.NewUpdateUsers"}}</th>
+                    <th>{{t "Total.Sessions"}}</th>
+                </tr>
+            </thead>
+           <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="isLoading">
+                            <img src="../assets/images/loading_pre.gif" alt="数据加载中">
+                            {{t "common.loading"}}
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+           </tbody>
+        </table>
+        <div style="text-align:center">
+            <div id="Pagination"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    {{{jsfunc}}}
+</script>

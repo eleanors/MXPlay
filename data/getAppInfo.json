@@ -1,0 +1,17 @@
+﻿{
+  "status": 1,
+  "result": {
+    "isOpened": true,
+    "needVerify": false,
+    "needSMS": true,
+    "needEmail": true,
+    "needImageCode": true,
+    "senderEmail": "no-reply@apicloud.com",
+    "verifySubject": "验证 {appName} 的帐号邮箱",
+    "resetSubject": "重设 {appName} 的密码",
+    "verifyContent": "<p>Hi, <%=userName%></p>\n\n<p>您需要验证应用 <%=appName%> 里的帐号邮箱地址 <%=email%>，请点击下列链
+接进行确认：</p>\n\n<p>\n  <a href=\"<%=verifyHref%>\"><%=verifyHref%></a>\n</p>",
+    "resetContent": "<p>Hi, <%=userName%></p>\n<p>\n    您请求重设应用 <%=appName%> 的密码。点击下列链接来重设您的帐号密码（链接在
+ 15分钟内有效）：\n</p>\n<p>\n    <a href=\"<%=resetHref%>\"><%=resetHref%></a>\n</p>\n\n\n"
+  }
+}

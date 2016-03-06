@@ -1,0 +1,10 @@
+﻿{
+  "status": 1,
+  "msg": "ok",
+  "body": [
+    {
+      "path": "/FM",
+      "type": "A"
+    }
+  ]
+}

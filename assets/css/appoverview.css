@@ -1,0 +1,948 @@
+.wrapper {
+	color: #999;
+}
+
+.arr-b.toggleDesUp {
+	background: url(../../assets/images/arr_b_pull.png) no-repeat;
+	display: inline-block;
+	width: 19px;
+	height: 18px;
+	vertical-align: middle;
+	position: relative;
+	top: 15px;
+}
+
+.btn {
+	color: #fff;
+	background-color: #8fb300;
+}
+
+.btn:hover {
+	color: #fff;
+	background-color: #7b960e;
+}
+
+.row {
+	box-shadow: 0px 2px 4px #ccc;
+	margin-bottom: 30px;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.usr-info .thumb {
+	width: 72px;
+	height: 72px;
+	border-radius: 10px;
+}
+
+#CADAppInfo {
+	padding: 20px;
+	position: relative;
+}
+
+#CADAppInfo h5 {
+	font-size: 12px;
+	color: #4c4c4c;
+}
+
+#CADAppInfo .profile-desk a.btn {
+	float: none;
+}
+
+#CADAppInfo .profile-desk a.del {
+	background-color: #ff7233;
+}
+
+#CADAppInfo .profile-desk a.transfer {
+	margin-left: 12px;
+}
+
+.myAppName {
+	margin-top: 0;
+	color: #000;
+}
+
+.myAppName span {
+	color: #999;
+	font-size: 12px;
+}
+
+.pull-right {
+	color: #999;
+}
+
+.myAppName .myAppNameSpan {
+	font-size: 18px;
+	color: #000;
+}
+
+#CADAppInfo .profile-desk {
+	padding-top: 10px;
+}
+
+#CADAppInfo .profile-desk a {
+	float: right;
+}
+
+#CADAppInfo .detail {
+	display: none;
+	position: absolute;
+	top: 10px;
+	left: 0;
+	z-index: 10;
+	background: #fff;
+	padding: 0px 20px 20px;
+	border-bottom: 1px solid #ccc;
+	box-shadow: 0px 2px 2px #ccc;
+	width: 100%;
+	min-height: 66px;
+}
+
+#CADAppInfo .detail .deleapp {
+	width: 82px;
+	height: 34px;
+	background-image: url(../../assets/images/btn-loading.gif);
+	background-position: 50% center;
+	background-repeat: no-repeat;
+	background-color: #4d8ceb;
+    /*text-indent: 10000em;*/
+}
+
+#CADAppInfo .profile-desk .hr {
+	display: inline-block;
+	width: 100%;
+	border-bottom: 1px #eee solid;
+	margin-top: 10px;
+	margin-bottom: 18px;
+}
+
+#CADAppInfo .profile-desk .detail label {
+	margin-bottom: 10px;
+}
+
+#CADAppInfo .profile-desk .detail .font-normal {
+	float: left;
+}
+
+#CADAppInfo .profile-desk .detail .font-dark {
+	word-wrap: break-word;
+	word-break: break-all;
+	color: #020202;
+	display: inline-block;
+}
+
+#CADAppInfo .profile-desk .detail .appinfo-detail {
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+#CADAppInfo .profile-desk .summary {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.new-user, .hot-user {
+	text-align: center;
+	padding-top: 20px;
+}
+
+.new-user .count, .hot-user .count {
+	font-size: 36px;
+	height: 2.2em;
+	margin-top: 15px;
+    /*letter-spacing: -2px;*/
+}
+
+.new-user .count {
+	color: #4d8ceb;
+}
+
+.useropt .count>span {
+	background: url(../../assets/images/appoverview.png) no-repeat;
+	display: block;
+	width: 35px;
+	height: 30px;
+	margin: 0 auto;
+}
+
+.new-user .count>span {
+	background-position: -434px -58px;
+}
+
+.hot-user .count {
+	color: #ff7233;
+}
+
+.hot-user .count>span {
+	background-position: -86px  -58px;
+}
+
+.all-user, .all-user ul {
+	height: 100%;
+	text-align: center;
+}
+
+.all-user span {
+	margin-top: 15px;
+	display: inline-block;
+}
+
+.all-user ul li {
+	height: 50%;
+}
+
+.all-user .push {
+	border-top: 1px solid #e3e3e3;
+}
+
+.all-user .bold {
+	font-size: 18px;
+	padding-top: 5px;
+}
+
+#app-info .code {
+	margin-left: 20px;
+	display: inline-block;
+	width: 18px;
+	height: 16px;
+	background: url(../../assets/images/appoverview.png) no-repeat;
+	background-position: -6px -68px;
+	position: absolute;
+	right: 22px;
+}
+
+#app-info .col-md-3, #app-info .last {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+#app-info .col-md-4 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+#stat-info .section {
+	height: 140px;
+}
+
+#stat-info table {
+	width: 100%;
+	position: relative;
+	z-index: 2;
+	top: 26px;
+}
+
+#stat-info th {
+	text-align: center;
+}
+
+#stat-info hr.border {
+	width: 80%;
+	position: relative;
+	border: 1px solid #dedede;
+	top: 18px;
+	z-index: -1;
+	margin: 0 auto;
+	display: inline-block;
+}
+
+#stat-info td {
+	height: 26px;
+	text-align: center;
+	width: 16.6666%;
+	position: relative;
+	width: 20.6666%\9;
+}
+
+#stat-info .tdIcon a {
+	width: 26px;
+	display: block;
+	height: 26px;
+	margin: 0 auto;
+	background: url(../../assets/images/package.png) no-repeat;
+}
+
+#stat-info .launch a {
+	background-position: -5px -82px;
+}
+
+#stat-info .launch.active a {
+	background-position: -5px -56px;
+}
+
+#stat-info .cert a {
+	background-position: -40px -82px;
+}
+
+#stat-info .cert.active a {
+	background-position: -40px -56px;
+}
+
+#stat-info .code a {
+	background-position: -75px -82px;
+}
+
+#stat-info .code.active a {
+	background-position: -75px -56px;
+}
+
+#stat-info .mod a {
+	background-position: -110px -82px;
+}
+
+#stat-info .mod.active a {
+	background-position: -110px -56px;
+}
+
+#stat-info .pack a {
+	background-position: -145px -82px;
+}
+
+#stat-info .pack.active a {
+	background-position: -145px -56px;
+}
+
+#stat-info .active a {
+	color: #4d8ceb;
+}
+
+#code-info .codeinfo-green {
+	color: #54b533;
+    /*margin-right: 16px;*/
+}
+
+#code-info .codeinfo-black {
+	color: #000;
+}
+
+#code-info {
+	padding-left: 0;
+	padding-right: 0;
+	position: relative;
+}
+
+#code-info header {
+	height: 70px;
+	line-height: 70px;
+	border-bottom: 1px solid #e3e3e3;
+}
+
+#code-info .svn {
+	padding-top: 20px;
+	clear: both;
+}
+
+#code-info header, #code-info .svn {
+    /*padding-left: 20px; padding-right: 20px;*/
+}
+
+#code-info .title {
+	font-size: 14px;
+	color: #000;
+	margin: 0 14px;
+}
+
+#code-info .codeinfo-right {
+	padding: 0;
+	min-width: 58.33333333%;
+}
+
+#code-info .detail {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	padding: 10px 20px 20px;
+	border-bottom: 1px solid #ccc;
+	box-shadow: 0px 2px 2px #ccc;
+	display: none;
+	background-color: #fff;
+	width: 100%;
+	min-height: 64px;
+}
+
+#code-info .detail1 {
+	width: 93%;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	text-indent: 20px;
+}
+
+#code-info .arr-b.toggleDesUp {
+	float: right;
+}
+
+#code-info .code {
+	margin-right: 20px;
+	display: inline-block;
+	width: 18px;
+	height: 70px;
+	float: right;
+	background: url(../../assets/images/menu1.png) center center no-repeat;
+}
+
+#code-info .time {
+	float: right;
+	margin-right: 18px;
+}
+/*#code-info .author{
+    height: 70px; background: url(../../assets/images/user.png) center left no-repeat;
+    padding-left: 25px; color: #000;
+    float: left;
+    margin-right: 5px;
+}*/
+/*-----------------------------------*/
+#code-info .author {
+	height: 70px;
+	color: #000;
+	float: left;
+	margin-right: 5px;
+}
+
+#code-info .author .author-icon {
+	background: url(../../assets/images/appoverview.png) no-repeat;
+	background-position: -36px -67px;
+	display: block;
+	margin-top: 25px;
+	width: 24px;
+	height: 20px;
+	float: left;
+}
+/*----------------------------------------*/
+#cloud-pack {
+	padding-left: 0;
+	padding-right: 0;
+	text-align: center;
+}
+
+#cloud-pack a {
+	display: block;
+	height: 100%;
+	background: #8fb300 url(../../assets/images/cloud-big.png) no-repeat center 30px;
+	padding-top: 86px;
+	color: #e7eed5;
+	font-size: 14px;
+}
+
+#cloud-pack a:hover {
+	background-color: #81a200;
+	text-decoration: none;
+}
+
+#pack-info {
+	box-shadow: none;
+}
+
+#pack-info .section {
+	box-shadow: 0px 2px 4px #ccc;
+	height: 140px;
+}
+
+#pack-info header {
+	height: 70px;
+	line-height: 70px;
+	padding: 0 20px;
+	border-bottom: 1px solid #e3e3e3;
+}
+
+#pack-info .title {
+	font-size: 14px;
+	color: #000;
+}
+
+#pack-info .code {
+	margin-left: 20px;
+	display: inline-block;
+	width: 18px;
+	height: 16px;
+	background: url(../../assets/images/menu1.png) no-repeat;
+}
+
+#pack-info .svn {
+	clear: both;
+	padding: 20px;
+}
+/*#pack-info .author{
+    background: url(../../assets/images/user.png) center left no-repeat; padding-left: 25px; color: #000;
+    margin-bottom: 20px; float: left; width: 40%; overflow: hidden;
+}*/
+/*-----------------------------------------*/
+#pack-info .author {
+	color: #000;
+	margin-bottom: 20px;
+	float: left;
+	width: 40%;
+	overflow: hidden;
+}
+
+#pack-info .author .author-icon {
+	background: url(../../assets/images/appoverview.png) no-repeat;
+	background-position: -36px -67px;
+	display: block;
+	width: 24px;
+	height: 20px;
+	float: left;
+}
+/*------------------------------------------------*/
+#pack-info .pack-info {
+	overflow: hidden;
+}
+
+#pack-info .pack-info .status {
+	float: left;
+}
+
+#pack-info .pack-info .err {
+	color: #ff4f00;
+}
+
+#pack-info .download {
+	float: right;
+}
+
+#pack-info .ver {
+	color: #54b533;
+	padding-left: 10px;
+}
+
+#pack-info .first {
+	padding-left: 0;
+}
+
+#pack-info .last {
+	padding-right: 0;
+}
+
+#pack-info .download a {
+	display: inline-block;
+    /*border-right: 1px solid #c9c9c9; */
+	padding: 0 10px;
+	color: #4d8ceb;
+}
+
+#pack-info .download .last {
+	border-right: none;
+}
+
+#pack-info .safe {
+	clear: both;
+}
+
+#pack-info .safe ul {
+	padding: 20px;
+}
+
+#pack-info .safe em {
+	font-style: normal;
+}
+
+#pack-info .safe .status {
+	overflow: hidden;
+	padding-bottom: 15px;
+}
+
+#pack-info .safe .status span {
+	float: left;
+}
+
+#pack-info .safe span.user {
+	float: right;
+}
+
+#pack-info .safe .verify {
+	padding-left: 20px;
+}
+
+#pack-info .safe .warn {
+	color: #ff4f00;
+}
+
+#pack-info .safe .limit em {
+	display: inline-block;
+	background: url(../../assets/images/dot.png) no-repeat left center;
+	padding-left: 16px;
+	padding-right: 6px;
+}
+
+#pack-info .safe .limit em.active {
+	background: url(../../assets/images/dot-l.png) no-repeat left center;
+}
+
+#safe-limit img {
+	margin-right: 8px;
+}
+
+#project-info {
+	box-shadow: none;
+}
+
+#project-info .section {
+	height: 140px;
+	box-shadow: 0px 2px 4px #ccc;
+}
+
+#project-info .first {
+	padding-left: 0;
+}
+
+#project-info .member {
+}
+
+#project-info .member table {
+	width: 100%;
+	height: 100%;
+}
+
+#project-info .member td.inner {
+	vertical-align: top;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#project-info .member td.inner .toggle {
+	float: right;
+	margin-top: 20px;
+	margin-right: 20px;
+}
+
+#project-info .member .inner {
+	height: auto;
+}
+
+#project-info .member .inner td {
+	padding: 6px 6px 0;
+}
+
+#project-info .member th, #project-info .member td {
+	text-align: center;
+}
+
+#project-info .member th {
+	color: #000;
+	font-weight: normal;
+}
+
+#project-info .member .title {
+	font-size: 14px;
+	font-weight: normal;
+	color: #000;
+	border-right: 1px solid #e3e3e3;
+	vertical-align: top;
+	padding: 20px 8px 0;
+}
+
+#project-info .member tfoot {
+	display: none;
+}
+
+#project-info .member .toggleMember {
+	float: right;
+	margin-right: 30px;
+	margin-top: 20px;
+}
+
+#project-info .publish {
+	padding-right: 0;
+	margin-bottom: 30px;
+}
+
+#project-info .update {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+#project-info header {
+	height: 70px;
+	line-height: 70px;
+	padding: 0 20px;
+	border-bottom: 1px solid #e3e3e3;
+	overflow: hidden;
+}
+
+#project-info .title {
+	font-size: 14px;
+	color: #000;
+}
+
+#project-info .ver {
+	color: #54b533;
+	padding-left: 10px;
+}
+
+#project-info .ver-info {
+	clear: both;
+	padding: 20px;
+}
+
+#project-info .ver-info em {
+	display: inline-block;
+	text-indent: -9999px;
+}
+
+#project-info .ver-info .ios {
+	width: 16px;
+	height: 17px;
+	background: url(../../assets/images/appoverview.png) no-repeat;
+	background-position: -157px -156px;
+}
+
+#project-info .ver-info .android {
+	width: 15px;
+	height: 17px;
+	background: url(../../assets/images/appoverview.png) no-repeat;
+	background-position: -308px -127px;
+}
+
+#project-info .author {
+	background: url(../../assets/images/user.png) center left no-repeat;
+	padding-left: 25px;
+	color: #000;
+}
+
+#project-info .update a {
+	display: block;
+	text-align: center;
+	height: 100%;
+	font-size: 14px;
+	background: #4d8ceb url(../../assets/images/rocket.png) no-repeat center 30px;
+	padding-top: 86px;
+	color: #e7eed5;
+}
+
+#project-info .update a:hover {
+	background-color: #4276C5;
+	text-decoration: none;
+}
+/* 新版成员管理 */
+#project-info .bottom {
+	padding-right: 0;
+}
+
+#project-info .bottom .member-panel {
+	min-height: 140px;
+	padding-bottom: 16px;
+	padding-bottom: 0\9;
+}
+
+#project-info .bottom .member-container {
+	height: 120px;
+	padding-left: 0;
+	padding-right: 0;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+#project-info .bottom .member-icon {
+	margin: 16px auto;
+	margin-bottom: 0px;
+	display: block;
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+    /*border: 1px solid #EEE;*/
+}
+
+#project-info .bottom .member-name {
+	width: 100%;
+	margin: 5px 0;
+	text-align: center;
+	display: inline-block;
+	color: #3a3a3a;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+#project-info .bottom .member-name.pending {
+	color: #9140c8;
+}
+
+#project-info .bottom .member-loginTime {
+	width: 100%;
+	height: 17px;
+	text-align: center;
+	margin-bottom: 10px;
+	overflow-y: hidden;
+}
+
+#overviewMemberPanel {
+    /*height: 140px;*/
+	max-height: 140px;
+	overflow: hidden;
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	-ms-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	transition: all .4s ease;
+}
+
+#overviewMemberPanel.active {
+	max-height: 700px;
+}
+
+#overviewMemberPanel-btn {
+	position: absolute;
+	right: 19px;
+	bottom: 22px;
+}
+
+#overviewMemberPanel-btn.active {
+	background: url(../../assets/images/arr_b_pull.png) no-repeat;
+}
+/* mcm部分 */
+#project-info #mcm-info,#project-info #mcm-info .row {
+	box-shadow: none;
+}
+
+#project-info #mcm-info .row {
+	margin-bottom: 0;
+	height: 50px;
+}
+
+#project-info #mcm-info .mcm-info-label {
+	text-align: right;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	margin: 0;
+	color: #999;
+}
+
+#project-info #mcm-info .progress {
+	margin-bottom: 0;
+	margin-top: 13px;
+	height: 26px;
+	width: 94%;
+	position: relative;
+	background-color: #C9C9CA;
+}
+
+#project-info #mcm-info .progress.dropped {
+	background-color: #F5AF29;
+}
+
+#project-info #mcm-info .progress .show-text-left,#project-info #mcm-info .progress .show-text-right {
+	position: absolute;
+}
+
+#project-info #mcm-info .progress .show-text-left {
+	left: 12px;
+}
+
+#project-info #mcm-info .progress .show-text-left em,#project-info #mcm-info .progress .show-text-right em {
+	color: #FFF;
+	text-align: left;
+	font-size: 12px;
+	height: 26px;
+	line-height: 26px;
+}
+
+#project-info #mcm-info .progress .show-text-right {
+	right: 14px;
+}
+
+#project-info #mcm-info .progress-bar.DB {
+	background-color: #E48070;
+}
+
+#project-info #mcm-info .progress-bar.FS {
+	background-color: #F5A966;
+}
+
+#project-info #mcm-info .progress-bar.DT {
+	background-color: #79B967;
+}
+
+#project-info #mcm-info .progress-bar.AR {
+	background-color: #84BC5C;
+}
+/* mcm部分结束 */
+
+/*移交应用*/
+.transfer-dialog {
+	font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Microsoft YaHei","Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-size: 12px;
+	border-radius: 0;
+	border: none;
+	padding: 0;
+	box-shadow: #555 0 0 15px;
+}
+
+.transfer-dialog .ui-dialog-titlebar {
+	border-radius: 0;
+	padding: 15px 30px;
+	border: none;
+	background-image: none;
+	background-color: #f2f2f2;
+}
+
+.transfer-dialog .ui-dialog-title {
+	font-size: 14px;
+}
+
+.transfer-dialog .ui-dialog-content {
+	padding: 0;
+}
+
+.transfer-dialog .ui-dialog-titlebar-close {
+	right: 22px;
+	border: none;
+	background-image: none;
+	background-color: transparent;
+	margin-top: -12px;
+}
+
+.transfer-dialog .note {
+	color: #404040;
+	padding: 40px 30px;
+	font-size: 14px;
+}
+
+.transfer-dialog .form-horizontal .form-group {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.transfer-dialog .accepter-con {
+	margin-bottom: 40px;
+}
+
+.transfer-dialog .control-label {
+	color: #a1a1a1;
+	text-align: left;
+	width: 9em;
+	padding-left: 30px;
+	padding-right: 0;
+}
+
+.transfer-dialog .accepter-input {
+	padding-left: 0;
+}
+
+.transfer-dialog .btns {
+	text-align: right;
+	padding-right: 30px;
+	margin-bottom: 20px;
+}
+
+.transfer-dialog .btns button {
+	width: 80px;
+}
+
+.transfer-dialog .transfer {
+	margin-right: 10px;
+	background-color: #4c7bb5;
+	color: #fff;
+}
+
+.transfer-dialog .cancel {
+	background-color: transparent;
+	color: #a0a0a0;
+	border: 1px solid #808080;
+}
+
+.transfer-dialog label.error {
+	margin-top: 8px;
+}

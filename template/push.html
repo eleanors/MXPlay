@@ -1,0 +1,522 @@
+﻿<link rel="stylesheet" type="text/css" href="../assets/css/totalbase.css" />
+<link rel="stylesheet" type="text/css" href="../assets/css/icheck.blue.css" />
+<link rel="stylesheet" type="text/css" href="../libs/daterangepicker/daterangepicker-bs3.css"/>
+<link rel="stylesheet" type="text/css" href="../libs/jquery/jquery-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="../libs/switchButton/switchButton.css" />
+<link rel="stylesheet" type="text/css" href="../assets/css/push.css" />
+<div id="mampush">
+    <div id="mampush-top" class="panel">
+        <div class="header clearfix">
+            <div class="row">
+                <div class="col-md-2">
+                    <h3>{{t "appPush.push-view"}}</h3>
+                </div>
+                <div class="col-md-8 push-counts">
+                    <div class="col-md-6">
+                        <div class="col-md-6">
+                            <span>
+                                {{t "appPush.count-dev"}}
+                            </span>
+                            <label>
+                            {{#if devs.dc}}
+                            {{devs.dc}}
+                            {{else}}
+                            0
+                            {{/if}}
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <span >
+                                {{t "appPush.onlineDevice"}}
+                            </span>
+                            <label id="how-many">
+                            {{#if devs.tmdc}}
+                            {{devs.tmdc}}
+                            {{else}}
+                            0
+                            {{/if}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-6">
+                            <span>
+                                {{t "appPush.count-month"}}
+                            </span>
+                            
+                            <label>
+                            {{#if devs.tmpmc}}
+                            {{devs.tmpmc}}
+                            {{else}}
+                            0
+                            {{/if}}
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <span>
+                                {{t "appPush.count-whole"}}
+                            </span>
+                            
+                            <label>
+                            {{#if devs.pmc}}
+                            {{devs.pmc}}
+                            {{else}}
+                            0
+                            {{/if}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 new-push">
+                    <span id="create-new-push" data-parent="#mampush-top" href="#push-box">
+                        <span class="arr-b"></span>
+                        <a href="javascript:void(0)" id="">{{t "appPush.new-push"}}</a>
+                    </span>
+                    <a href="javascript:void(0)" id="push-config"  class="icon-cog pull-right" title='{{t "appPush.push-config"}}'></a>
+                    <form action="" class="" id="new-push-form" method="post">
+                        <div class="tri-bottom"></div>
+                        <div class="tri-bottom-in"></div>
+                        <div class="row clearfix" style="margin-bottom:18px;">
+                        </div>
+                        <div class="row clearfix" style="margin-bottom:18px;">
+                            <span style="float: left;color:#8A8A8A;">{{t "appPush.openStatus"}}</span>
+                            <input id="push-service" type="checkbox" value="" {{#eq config.status 1}}checked{{/eq}}>
+<div id="choose-upload-st" appid="{{config.appId}}"  temp-url="" saved-url="{{#if config.iosDisCerPath}}{{config.iosDisCerPath}}{{else}}{{/if}}" saved-switch="{{#if config.status}}{{config.status}}{{else}}0{{/if}}" temp-switch="" saved-hours="{{#if config.offlineMsgKeepHours}}{{config.offlineMsgKeepHours}}{{else}}0{{/if}}" temp-hours="" style="display:none;">
+                                <!-- 设置信息 -->
+                            </div>
+                        </div>
+                        <div class="row clearfix" style="margin-bottom:18px;">
+                            <label class="pull-left" style="width:100%;margin-bottom:20px;">
+                                {{t "appPush.cert-ios"}}</label>
+                            <div class="col-xs-6 upload-push-imgbox">
+                                <div class="push-imgbox-inner">
+                                    <img src="../assets/images/default.png" alt='{{t "appPush.iosP12"}}' title='{{t "appPush.iosProv"}}' class="iOS-mp">
+                                </div>
+                                <div class="upload-push-labels active">
+                                    <label class="upload-push-label-d">
+                                        {{t "appPush.pleaseUpP12"}}
+                                    </label>
+                                    <label class="upload-push-uploaded">
+                                        {{t "appPush.uploaded"}}
+                                    </label>
+                                    <label for="upload-push-p12-file" id="" class="label-a-push">
+                                        <span id="upload-span">
+                                            {{t "appPush.choose-cert"}}</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix" id="cert-pwd">
+                            <label class="pull-left" style="width:100%;margin-bottom:10px;">
+                                {{t "cadCert.certPwd"}}
+                            </label>
+                            <input type="password" class="form-control">
+                        </div>
+                        <div class="row clearfix push-config-hours">
+                            <label class="pull-left">{{t "appPush.offline"}}</label>
+                            <div class="row pull-left">
+                                <label style="margin-right:0;">
+                                    {{t "common.save"}}
+                                </label>
+                                <input class="form-control" id="hours-choose" type="text" max-length="2" value="0" readonly {{#if config.offlineMsgKeepHours}}value="{{config.offlineMsgKeepHours}}"{{else}}value="0"{{/if}}>
+                                <label>
+                                    {{t "common.hour"}}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row clearfix push-config-range" style="margin-bottom:0;">
+                            <div id="hours-range"></div>
+                        </div>
+                        
+                        <div class="row clearfix form-btn-group">
+                            <input class="pull-right btn btn-blue" value='{{t "appPush.save"}}' type="submit" style="margin-left:14px;">
+                            <input class="pull-right warning btn btn-default form-btn-cancel" value='{{t "appPush.cancel"}}' type="button">
+                        </div>
+                    </form>
+                </div>
+                <div></div>
+            </div>
+        </div>
+        <div id="push-box-out">
+            <form id="push-box" class="row clearfix collapse">
+                <div class="col-md-10">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active" value="notice">
+                            <a href="#notice-push" class="first-tab" role="tab" data-toggle="tab">
+                                {{t "appPush.notice"}}
+                            </a>
+                        </li>
+                        <li value="message">
+                            <a href="#message-push" class="last-tab" role="tab" data-toggle="tab">
+                                {{t "appPush.message"}}
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active clearfix" id="notice-push">
+                            <div class="row">
+                                <div class="col-md-4 content-left">
+                                    
+                                    <div class="row content-innerBox notice-innerBox">
+                                        <input id="notice-title" name="notice-title" type="text" class="form-control">
+                                        <!-- <label class="text-count"><span id="notice-title-span">0</span> / 40</label> -->
+                                    </div>
+                                    <div class="push-title-err"></div>
+                                    <div class="row content-innerBox message-innerBox">
+                                        <textarea id="notice-content" name="notice-content" class="form-control"></textarea>
+                                        <label class="text-count"><span id="notice-content-span">0</span> / <span id="bytesNum">174</span></label>
+                                    </div>
+                                    <div class="push-message-err"></div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="row row-left">
+                                        <div class="row clearfix row-left-inner" id="push-to">
+                                            <label style="margin-right: 20px;">
+                                                <input type="radio" name="push-to-radio" checked value="1"/>
+                                                {{t "PushNotification.AllUser"}}
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="push-to-radio" value="2"/>
+
+                                                {{t "PushNotification.DesignatedGroup"}}
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="push-to-radio" value="3"/>
+
+                                                {{t "PushNotification.DesignatedUser"}}
+                                            </label>
+                                        </div>
+                                        <!-- <div class="row clearfix row-left-inner row-group-push"
+>
+                                            <label class="pull-left">
+                                                {{t "appPush.choose-groups"}}
+                                            </label>
+                                            <div class="row pull-left">
+                                                <select class="" id="group-push" name="group-push">
+
+                                                    {{#each groups}}
+                                                    <option value="{{groupId}}" person-count="{{#if personCount
+}}{{personCount}}{{else}}0{{/if}}">{{groupName}}</option>
+                                                    {{/each}}
+                                                </select>
+                                            </div>
+                                        </div> -->
+                                        <div id="row-group-push" class="row clearfix row-left-inner ow-group-push"
+>
+                                            <div class="row">
+                                                <label class="pull-left">
+                                                    {{t "appPush.choose-groups"}}                                                </label>
+                                            </div>
+                                            <div class="row clearfix" id="push-group">
+                                                {{#each groups}}
+                                                <label style="margin-right: 20px;">
+                                                    <input type="checkbox" value="{{groupId}}"/>
+                                                    {{groupName}}
+                                                </label>
+                                                {{/each}}
+                                            </div>
+                                            <input type="text" name="push-group" class="push-group hidden">
+                                        </div>
+                                        <div id="row-push-id" class="row clearfix row-left-inner row-group-push">
+                                            <label class="pull-left">
+                                                {{t "appPush.userId"}}
+                                            </label>
+                                            <div id="push-id-container" class="row clearfix">
+                                                <!-- <span class="push-id-box">
+                                                    staneminem
+                                                    <i class="close">×</i>
+                                                </span> -->
+                                                <!-- <input type="text" id="push-id-input" placeholder
+='可同时推送多个指定用户，用户ID之间用","分隔' class="form-control"> -->
+                                                <textarea name="" id="push-id-input" placeholder="{{t 'PushNotification.push-notice1'}}"></textarea>
+                                            </div>
+                                            <input type="text" name="push-id" class="push-id hidden">
+                                        </div>
+                                        <div class="row clearfix row-left-inner" id="push-platform">
+
+                                            <label class="pull-left" style="margin-right:15px;">
+                                                {{t "appPush.push-platform"}}
+                                            </label>
+                                            <label style="margin-right: 20px;">
+                                                <input id="ios" type="checkbox" checked value="1"/>
+
+                                                iOS
+                                            </label>
+                                            <label>
+                                                <input id="android" type="checkbox" checked value="2"/>
+                                                Android
+                                            </label>
+                                            <input type="text" style="display:none;" id="push-platform-num" name="push-platform-num" value="0">
+                                            <div class="push-platform-err" style="margin-top: 5px;">
+</div>
+                                        </div>
+                                        <div class="row clearfix row-left-inner" id="push-timing">
+                                            <label class="pull-left">
+                                                {{t "appPush.timing"}}
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="timingRadios" id="timingRadios1" value="1" checked>
+                                                <span>
+                                                    {{t "appPush.close"}}
+                                                </span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="timingRadios" id="timingRadios2" value="2">
+                                                <span>
+                                                    {{t "appPush.open"}}
+                                                </span>
+                                            </label>
+                                        </div>
+                                        <div class="row clearfix row-left-inner row-group-push" style
+="display:inline-block;">
+                                            <label class="pull-left">
+                                                {{t "appPush.selectTime"}}
+                                            </label>
+                                            <div class="row pull-left" style="width: 210px;">
+                                                <input class="form-control" name="time-choose" id="time-choose" type="text" placeholder="Coming soon" disabled readonly>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-2 btns">
+                     <input type="submit" id="push-box-submit" class="btn btn-blue btn-block add" value='{{t "appPush.send"}}'>
+                     <button class="btn btn-default btn-block cancel">
+                         {{t "appPush.cancel"}}
+                     </button>
+
+                </div>
+                <!-- <div class="row clearfix" id="how-many">
+                    <label>
+                        <span data-i18n="appPush.pre-left">*预计将推送给</span>
+                        <span class="num-active">
+                        </span>
+                        <span data-i18n="appPush.pre-right">位活跃用户</span>
+                    </label>
+                </div> -->
+            </form>
+        </div>
+    </div>
+    <div class="panel" id="push-log">
+        <div class="header clearfix header2">
+            <div class="row">
+                <div class="col-md-1">
+                    <h3>{{t "appPush.push-log"}}</h3>
+                </div>
+                <div class="col-md-4">
+                    <div class="btn-group platform-btn-group">
+                        <a class="btn btn-default active first" id="" value="-1" href="javascript:void(0)">
+                            {{t "appPush.all"}}
+                        </a>
+                        <a class="btn btn-default" id="" value="0" href="javascript:void(0)">
+                            {{t "appPush.timing"}}
+                        </a>
+                        <a class="btn btn-default" id="" value="1" href="javascript:void(0)">
+                            {{t "appPush.sending"}}
+                        </a>
+                        <a class="btn btn-default last" id="" value="2" href="javascript:void(0)">
+                            {{t "appPush.send-succ"}}
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="btn-group btn-group-none">
+                        <span class="btn-none first" id="" value="notice" href="javascript:void(0)">
+
+                            <i class="notice-i-push"></i>&nbsp;
+                            <span>&nbsp;{{t "appPush.notice"}}</span>
+                        </span>
+                        <span class="btn-none last" id="" value="message" href="javascript:void(0)">
+
+                            <i class="message-i-push"></i>&nbsp;
+                            <span>&nbsp;{{t "appPush.message"}}</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-4 input-group input-group-filter">
+                    <i id="date-picker-push" class="input-group-addon glyphicon glyphicon-calendar">
+</i>
+                    <input type="text" id="text-picker" data-range-start="" data-range-end="" class="form-control" readonly>
+                    <!-- <i id="clear-daterange"></i> -->
+                    <!-- 清除时间，并搜索 -->
+                </div>
+            </div>
+        </div>
+        <!-- table -->
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="hidden">
+                    <tr class="row">
+                        <th class=""><!-- 类型 --></th>
+                        <th class=""><!-- 标题 --></th>
+                        <th class=""><!-- 状态 --></th>
+                        <th class=""><!-- 送达数/总条数 --></th>
+                        <th class=""><!-- 用户组 --></th>
+                        <th class=""><!-- 平台 --></th>
+                        <th class=""><!-- 时间 --></th>
+                        <th class=""><!-- 操作 --></th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                    {{#each messages}}
+                    <tr class="row">
+                        <td width=55>
+                            {{#eq mt 1}}
+                            <span class="message-i-push td1" tasktype="1"></span>
+                            {{/eq}}
+                            {{#eq mt 2}}
+                            <span class="notice-i-push td1" tasktype="2"></span>
+                            {{/eq}}
+                        </td>
+                        <td width="120px" class="color-black td2" messages-sendcontent="{{content}}" title="{{title}}" style="word-break: break-all;"><p style="overflow:hidden;height:18px;padding:0;margin:0;">{{title}}</p></td>
+                        <td width=120>
+                            {{#eq status 0}}
+                            <label class="timing-push">
+                                {{t "appPush.timing"}}
+                            </label>
+                            {{/eq}}
+                            {{#eq status 1}}
+                            <label class="sending-push">
+                                {{t "appPush.sending"}}
+                            </label>
+                            {{/eq}}
+                            {{#eq status 2}}
+                            <label class="succ-push">
+                                {{t "appPush.send-succ"}}
+                            </label>
+                            {{/eq}}
+                            <!-- <label class="fail-push">{{t "appPush.fail"}}</label> -->
+                        </td>
+                        <td width=120>{{scount}}/{{tcount}}</td>
+                        <td width=120 class="td3" groupid="{{groupId}}">
+                            {{#eq targetType 0}}
+                                {{t "PushNotification.AllUser"}}
+                            {{/eq}}
+                            {{#eq targetType 1}}
+                            <span class="group-btn" data="{{#if groupName}}{{groupName}}{{/if}}">
+                                {{t "PushNotification.DesignatedGroup"}}
+                            </span>
+                            {{/eq}}
+                            {{#eq targetType 2}}
+                            <span class="group-btn" data="{{#if userIds}}{{userIds}}{{/if}}">
+                                {{t "PushNotification.DesignatedUser"}}
+                            </span>
+                            {{/eq}}
+                        </td>
+                        <td width=120 class="td4" platform="{{platform}}">
+                            {{#eq platform 1}}
+                            iOS
+                            {{/eq}}
+                            {{#eq platform 2}}
+                            Android
+                            {{/eq}}
+                            {{#eq platform 0}}
+                            Android/iOS
+                            {{/eq}}
+                        </td>
+                        <td width=120 class="td5" is-tm="{{is_tm}}" timer={{#eq is_tm 1}}"{{timer}}"{{else}}{{/eq}}>{{#formatDate ct}}{{/formatDate}}</td>
+                        <td width=130>
+                            <div class="row">
+                                {{#eq is_tm 1}}
+
+                                {{else}}
+                                <!-- <a href="javascript:void(0)" class="resend-push">
+                                    重发
+                                </a> -->
+                                {{/eq}}
+                                <a href="javascript:void(0)" class="delete-push" title='{{t "appPush.delete"}}' del-id="{{id}}">
+                                    {{t "appPush.delete"}}
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <!-- 2015-1-21 这里写弹窗-->
+            <div id="push-to-container" class="clearfix">
+                <div class="tri-bottom"></div>
+                <div class="tri-bottom-in"></div>
+                <ul id="push-to-list">
+                </ul>
+            </div>
+            <!-- 2015-1-21 end -->
+        </div>
+        <!-- more -->
+        <script id="more-push" type="text/x-handlebars-template">
+        \{{#each messages}}
+        <tr class="row">
+            <td width=55>
+                \{{#eq mt 1}}
+                <span class="message-i-push td1" tasktype="1"></span>
+                \{{/eq}}
+                \{{#eq mt 2}}
+                <span class="notice-i-push td1" tasktype="2"></span>
+                \{{/eq}}
+            </td>
+            <td width="120px" class="color-black td2" messages-sendcontent="\{{content}}" title="\{{title}}" style="word-break: break-all;"><p style="overflow:hidden;height:18px;padding:0;margin:0;">\{{title}}</p></td>
+            <td width=120>
+                \{{#eq status 0}}
+                <label class="timing-push">{{t "appPush.timing"}}</label>
+                \{{/eq}}
+                \{{#eq status 1}}
+                <label class="sending-push">{{t "appPush.sending"}}</label>
+                \{{/eq}}
+                \{{#eq status 2}}
+                <label class="succ-push">{{t "appPush.send-succ"}}</label>
+                \{{/eq}}
+                <!-- <label class="fail-push">{{t "appPush.fail"}}</label> -->
+            </td>
+            <td width=120>\{{scount}}/\{{tcount}}</td>
+            <td width=120 class="td3" groupid="\{{groupId}}">
+                \{{#eq targetType 0}}
+                    {{t "PushNotification.AllUser"}}
+                \{{/eq}}
+                \{{#eq targetType 1}}
+                <span class="group-btn" data="\{{#if groupName}}\{{groupName}}\{{/if}}">
+                    {{t "PushNotification.DesignatedGroup"}}
+                </span>
+                \{{/eq}}
+                \{{#eq targetType 2}}
+                <span class="group-btn" data="\{{#if userIds}}\{{userIds}}\{{/if}}">
+                    \{{t "PushNotification.DesignatedUser"}}
+                </span>
+                \{{/eq}}
+            </td>
+            <td width=120 class="td4" platform="\{{platform}}">
+                \{{#eq platform 1}}
+                iOS
+                \{{/eq}}
+                \{{#eq platform 2}}
+                Android
+                \{{/eq}}
+                \{{#eq platform 0}}
+                Android/iOS
+                \{{/eq}}
+            </td>
+            <td width=120 class="td5" is-tm="\{{is_tm}}" timer=\{{#eq is_tm 1}}"\{{timer}}"\{{else}}\{{/eq}}>\{{#formatDate ct}}\{{/formatDate}}</td>
+            <td width=130>
+                <div class="row">
+                    \{{#eq is_tm 1}}
+
+                    \{{else}}
+                    
+                    \{{/eq}}
+                    <a href="javascript:void(0)" class="delete-push" title='{{t "appPush.delete"}}' del-id="\{{id}}">
+                        {{t "appPush.delete"}}
+                    </a>
+                </div>
+            </td>
+        </tr>
+        \{{/each}}
+        </script>
+        <div class="row load-more" style="display:none;">
+            <a href="javascript:void(0)" class="center-block text-center">{{t "appPush.loading_more"}}</a>
+        </div>
+    </div>
+</div>

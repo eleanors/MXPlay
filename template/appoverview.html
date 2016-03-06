@@ -1,0 +1,684 @@
+<link rel="stylesheet" type="text/css" href="../assets/css/appoverview.css" />
+
+<div class="row" id="app-info" apptype="{{appType}}">
+    <div class="col-md-4 section">
+        <section id="CADAppInfo">
+            <div>
+                <div class="media usr-info">
+                    <a class="pull-left">
+                        {{#if appIcon}}
+                        <img class="thumb" src="{{appIcon}}" alt="" id="indexAppIcon1">
+                        {{else}}
+                        <img class="thumb" src="../assets/images/default.png" alt="" id="indexAppIcon1">
+                        {{/if}}
+                        
+                    </a>
+                    <div class="media-body">
+                        <h4 class="myAppName" appid="{{appId}}">
+                            <span class="myAppNameSpan">
+                            {{#eq userType 2}}
+                            {{appName}}*
+                            {{else}}
+                            {{appName}}
+                            {{/eq}}
+                            </span>
+                        </h4>
+                        <h5>
+                            ID: {{appId}}
+                            <span class="pull-right" data-time="{{appCreateDate}}">
+                                {{#if appCreateDate}}
+                                {{#formatDate appCreateDate}}
+                                {{/formatDate}}
+                                {{/if}}
+                            </span>
+                        </h5>
+                        <h5>{{t "appInfo.author"}}: {{creator}}</h5>
+                    </div>
+                </div>
+                <div class="profile-desk clearfix">
+                    <p class="summary">{{appInfo}}</p>
+                    <p class="detail">
+                        <span class="hr"></span>
+                        {{#if appKey}}
+                            <label><span class="font-normal">appKey: </span><span class="font-dark">
+{{appKey}}</span></label>
+                        {{/if}}
+                        {{#if baiduKey}}
+                            <label><span class="font-normal">{{t "appInfo.baidu"}}key: </span><span class="font-dark">{{baiduKey.SHA1}}</span></label>
+                        {{/if}}
+                        <span class="hr"></span>
+                        {{#if iosPkgName}}
+                        <label><span class="font-normal">{{t "appInfo.iosPkgName"}}: </span><span class="font-dark">{{iosPkgName}}</span></label>
+                        {{/if}}
+                        {{#if androidPkgName}}
+                        <label><span class="font-normal">{{t "appInfo.andPkgName"}}: </span><span class="font-dark">{{androidPkgName}}</span></label>
+                        {{/if}}
+                        <span class="hr"></span>
+                    {{#if appInfo}}
+                        <label class="appinfo-detail">{{appInfo}}</label>
+                        <span class="hr"></span>
+                    {{/if}}
+                    {{#eq userType 2}}
+                    {{else}}
+                        {{#eq appType -1}}
+                        {{/eq}}
+                        {{#eq appType 0}}
+                        <a href="javascript:void(0)" class="del btn">{{t "appInfo.delApp"}}</a>
+                        <a href="javascript:void(0)" class="transfer btn">{{t "appInfo.transferApp"}}</a>
+                        {{/eq}}
+                        {{#eq appType 1}}
+                        <a href="javascript:void(0)" class="del btn">{{t "appInfo.delApp"}}</a>
+                        <a href="javascript:void(0)" class="transfer btn">{{t "appInfo.transferApp"}}</a>
+                        {{/eq}}
+                        {{#eq appType 2}}
+                        {{/eq}}
+                        {{#eq appType 3}}
+                        <a href="javascript:void(0)" class="del btn">{{t "appInfo.delApp"}}</a>
+                        <a href="javascript:void(0)" class="transfer btn">{{t "appInfo.transferApp"}}</a>
+                        {{/eq}}
+                        {{#eq appType 4}}
+                        <a href="javascript:void(0)" class="del btn">{{t "appInfo.delApp"}}</a>
+                        <a href="javascript:void(0)" class="transfer btn">{{t "appInfo.transferApp"}}</a>
+                        {{/eq}}
+                        {{#eq appType 11}}
+                        <a href="javascript:void(0)" class="del btn">{{t "appInfo.delApp"}}</a>
+                        <a href="javascript:void(0)" class="transfer btn">{{t "appInfo.transferApp"}}</a>
+                        {{/eq}}
+                        {{#eq appType 12}}
+                        <a href="javascript:void(0)" class="del btn">{{t "appInfo.delApp"}}</a>
+                        <a href="javascript:void(0)" class="transfer btn">{{t "appInfo.transferApp"}}</a>
+                        {{/eq}}
+                        {{#eq appType 13}}
+                        <a href="javascript:void(0)" class="del btn">{{t "appInfo.delApp"}}</a>
+                        <a href="javascript:void(0)" class="transfer btn">{{t "appInfo.transferApp"}}</a>
+                        {{/eq}}
+                    {{/eq}}
+                    <a href="javascript:void(0)" class="arr-b toggleDesUp" style="top:5px;"></a>
+                    </p>
+                    <a href="javascript:void(0)" class="arr-b toggleDes"></a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-3 section">
+        <section class="new-user useropt">
+            <span class="title" >{{t "appInfo.newUser"}}</span>
+            <span class="pull-right">
+                <a href="/total" class="code">
+                </a>
+            </span>
+            <div class="count">
+                {{#if yesterday.newUsersCount}}
+                {{yesterday.newUsersCount}}
+                {{else}}
+                0
+                {{/if}}
+                <span></span>                    
+            </div>
+        </section>
+    </div>
+    <div class="col-md-3 section">
+        <section class="hot-user useropt">
+            <span class="title">{{t "appInfo.activeUser"}}</span>
+            <span class="pull-right">
+                <a href="/total" class="code">
+                </a>
+            </span>
+            <div class="count">
+                {{#if yesterday.activeUsersCount}}
+                {{yesterday.activeUsersCount}}
+                {{else}}
+                0
+                {{/if}} 
+                <span></span>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-2 section last">
+        <section class="all-user">
+            <ul>
+                <li>
+                    <span >{{t "appInfo.totalUser"}}</span>
+                    <div class="bold">{{userCount}}</div>
+                </li>
+                <li class="push">
+                    <span >{{t "appInfo.pushMsg"}}</span>
+                    <div class="bold">{{pushCount}}</div>
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+<div class="row" id="stat-info" stat-info="{{appStatus}}">
+    <div class="col-md-5 section">
+        <table>
+            <tr>
+                <th colspan="6">
+                    <hr class="border">
+                </th>
+            </tr>
+            <tr>
+                <td class=" tdIcon launch "><a href="/CADConfig"></a></td>
+                <!-- <td class="icon"><a href="/CADConfig">&nbsp;</a></td> -->
+                <td class=" tdIcon cert "><a href="/certificate"></a></td>
+                <td class=" tdIcon code "><a href="/code"></a></td>
+                <td class=" tdIcon mod "><a href="/module"></a></td>
+                <td class=" tdIcon pack "><a href="/package"></a></td>
+            </tr>
+            <tr>
+                <td><a href="/CADConfig" >{{t "appStatus.launch"}}</a></td>
+                <!-- <td><a href="/CADConfig">icon</a></td> -->
+                <td><a href="/certificate" >{{t "common.certificate"}}</a></td>
+                <td><a href="/code" >{{t "common.code"}}</a></td>
+                <td><a href="/module" >{{t "common.module"}}</a></td>
+                <td><a href="/package" >{{t "common.package"}}</a></td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-5 section" id="code-info">
+        <header class="clearfix">
+            <div class="pull-left">
+                <span class="title" >{{t "appStatus.codeInfo"}}</span>
+            </div>
+            <label class="codeinfo-green">
+            {{#and svn.version svn.codeSize}}
+            v{{svn.version}}
+            {{else}}
+            {{/and}}
+            </label>
+            <!-- <span class="codeinfo-black">大小：</span> -->
+            <!-- <label class="codeinfo-green" style="margin-right:0;">{{svn.codeSize}}</label> -->
+
+            <span class="pull-right codeinfo-right clearfix">
+                <span class="author">
+                    <span class="author-icon"></span>
+                {{#if svn.optUser}}
+                {{svn.optUser}}
+                {{else}}
+
+                {{/if}}
+                </span>
+                <a href="/code" class="code">
+                </a>
+                <span class="time">
+                    {{#if svn.optTime}}
+                        {{#formatDate svn.optTime}}
+                        {{/formatDate}}
+                    {{else}}
+
+                    {{/if}}
+                </span>
+            </span>
+        </header>
+        <div class="svn clearfix">
+            <label class="detail1">
+                {{#if svn.codeNote}}
+                {{svn.codeNote}}
+                {{else}}
+                <span>{{t "appInfo.noCode"}}</span>
+                {{/if}}
+            </label>
+            <div class="pull-right" style="margin-right: 20px;">
+                <a href="javascript:void(0)" class="arr-b toggleNote"></a>
+            </div>
+        </div>
+        <p class="detail">
+            {{#if svn.codeNote}}
+            {{svn.codeNote}}
+            {{else}}
+            <span>{{t "appInfo.noCode"}}</span>
+            {{/if}}
+            <a href="javascript:void(0)" class="arr-b toggleDesUp"></a>
+        </p>
+    </div>
+    <div class="col-md-2 section" id="cloud-pack">
+        <a href="/package" >{{t "appStatus.package1"}}</a>
+    </div>
+</div>
+
+<div class="row" id="pack-info">
+    <div class="col-md-6 first">
+        <div class="section">
+            <header class="clearfix">
+                <div class="pull-left">
+                    <span class="title" >{{t "packInfo.release"}}</span><span class="ver">
+                        {{#if rp.upkVer}}
+                            {{rp.upkVer}}
+                        {{else}}
+                        {{/if}}
+                    </span>
+                </div>
+                <span class="pull-right">
+                    <!-- <span>今天 12:32</span> -->
+                    <span>
+                    {{#if rp.upkCreateDate}}
+                        {{#formatDate rp.upkCreateDate}}
+                        {{/formatDate}}
+                    {{else}}
+
+                    {{/if}}
+                    </span>
+                    <a href="/package" class="code toPackageHistory">
+                    </a>
+                </span>
+            </header>
+            <div class="svn">
+                {{#if rp.upkVer}}
+                <div class="author">
+                    {{#if rp.userName}}
+                        {{rp.userName}}
+                    {{else}}
+                    {{/if}}
+                </div>
+                <div class="pack-info">
+                    <span class="download">
+                        {{#eq rp.upkState -1}}
+                        <span class="err"><span >{{t "common.fail"}}</span></span>
+                        {{else}}
+                            {{#or rp.upkIpaUrl rp.upkApkUrl}}
+                                <span >{{t "common.download"}}</span>: 
+                            {{/or}}
+                            {{#if rp.upkIpaUrl}}
+                                <a href="{{rp.upkIpaUrl}}" class="">iOS</a>
+                            {{else}}
+                            {{/if}}
+                            <!-- 根据条件判断加几个"|" -->
+                            {{#if rp.upkIpaUrl}}
+                                {{#if rp.upkApkUrl}}
+                                <span class="pack-color">|</span>
+                                {{/if}}
+                            {{/if}}
+                            {{#if rp.upkApkUrl}}
+                                <a href="{{rp.upkApkUrl}}" class="">Android</a>
+                            {{else}}
+                            {{/if}}
+                        {{/eq}}
+                    </span>
+                </div>
+                {{else}}
+                    {{t "appInfo.noVersion"}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 last">
+        <div class="section">
+            <header class="clearfix">
+                <div class="pull-left">
+                    <span class="title" >{{t "packInfo.beta"}}</span><span class="ver">
+                        <!-- \{{#if tp.upkVer}}
+                            \{{tp.upkVer}}
+                        \{{else}}
+                        \{{/if}} -->
+                    </span>
+                </div>
+                <span class="pull-right">
+                    <span>
+                        {{#if tp.upkCreateDate}}
+                            {{#formatDate tp.upkCreateDate}}
+                            {{/formatDate}}
+                        {{else}}
+
+                        {{/if}}
+                    </span>
+                    <a href="/package" class="code toPackageHistory">
+                    </a>
+                </span>
+            </header>
+            <div class="svn">
+                {{#if tp.upkVer}}
+                <div class="author">
+                    <span class="author-icon"></span>
+                    {{#if tp.userName}}
+                        {{tp.userName}}
+                    {{else}}
+                    {{/if}}
+                </div>
+                <div class="pack-info">
+                    <span class="download">
+                        {{#eq tp.upkState -1}}
+                        <span class="err"><span>{{t "common.fail"}}</span></span>
+                        {{else}}
+                            {{#or tp.upkIpaUrl tp.upkApkUrl}}
+                                <span>{{t "common.download"}}</span>: 
+                            {{/or}}
+                            {{#if tp.upkIpaUrl}}
+                                <a href="{{tp.upkIpaUrl}}" class="">iOS</a>
+                            {{else}}
+                            {{/if}}
+                            <!-- 根据条件判断加几个"|" -->
+                            {{#if tp.upkIpaUrl}}
+                                {{#if tp.upkApkUrl}}
+                                <span class="pack-color">|</span>
+                                {{/if}}
+                            {{/if}}
+                            {{#if tp.upkApkUrl}}
+                                <a href="{{tp.upkApkUrl}}" class="">Android</a>
+                            {{else}}
+                            {{/if}}
+                        {{/eq}}
+                    </span>
+                </div>
+                {{else}}
+                    {{t "appInfo.noVersion"}}
+                {{/if}}
+            </div>
+        </div>
+        
+    </div>
+    <!-- MSM 安全管理 暂时不要 -->
+    <!-- <div class="col-md-4 last">
+        <div class="section">
+            <header class="clearfix">
+                <div class="pull-left">
+                    <span class="title" data-i18n="packInfo.safe"></span>
+                </div>
+                <span class="pull-right" id="safe-limit">
+                    {{#if smAuthority.msTime}}
+                        <img src="/img/time-limit.png" data-i18n="[title]packInfo.timeLimit" />
+                    {{else}}
+                    {{/if}}
+                    {{#if smAuthority.msLocation}}
+                        <img src="/img/geo-limit.png" data-i18n="[title]packInfo.geoLimit" />
+                    {{else}}
+                    {{/if}}
+                    {{#if smAuthority.msNet}}
+                        <img src="/img/wifi-limit.png" data-i18n="[title]packInfo.netLimit" />
+                    {{else}}
+                    {{/if}}
+                    {{#if smAuthority.msEtc}}
+                        <img src="/img/root-limit.png" data-i18n="[title]packInfo.netLimit" />
+                    {{else}}
+                    {{/if}}
+                </span>
+            </header>
+            <div class="safe">
+                <ul>
+                    <li class="status">
+                        <span><span data-i18n="common.status"></span>: 
+                            <em id="smAuthority_manuAuth" manuAuth="{{smAuthority.manuAuth}}">
+                            </em>
+                        </span>
+                        <span class="user">
+                            <span><span data-i18n="packInfo.authenticated"></span>: <em>
+                                {{smValidatedCount}}
+                            </em></span><span class="verify"><span data-i18n="packInfo.pending"></span
+>: <em class="warn">
+                                {{smWaitValidateCount}}
+                            </em>
+                        </span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+</div>
+
+<div class="row" id="project-info">
+    <div class="col-md-6 first">
+        <div class="section" style="height:310px;">
+            <header class="clearfix">
+                <div class="pull-left">
+                    <span class="title">{{t "apiAna.title"}}</span>
+                </div>
+            </header>
+            <div id="mcm-info" class="row">
+                {{#eq mcmOpened true}}
+                <div class="row clearfix" style="margin-top:14px;">
+                    <div class="col-md-3">
+                        <label class="mcm-info-label">{{t "apiAna.dataBase"}}<!-- Datebase --></label
+>
+                    </div>
+                    <div class="col-md-9">
+                        <div id="uploadModule-i" class="progress" title='{{t "common.remain"}}{{#percent
+ mcmStatistics.dbSize 10}}{{/percent}}'>
+                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar"
+ class="progress-bar DB" style="width:{{#percent mcmStatistics.dbSize 10}}{{/percent}}" title='{{t   "common.remain"}}{{#percent mcmStatistics.dbSize 10}}{{/percent}}'>
+                                
+                            </div>
+                            <span class="show-text-left">
+                                <em></em>
+                            </span>
+                            <span class="show-text-right">
+                                <em>Total: 10G</em>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-3">
+                        <label class="mcm-info-label">{{t "apiAna.fileStorage"}}<!-- File Storage --></label>
+                    </div>
+                    <div class="col-md-9">
+                        <div id="uploadModule-i" class="progress" title='{{t "common.remain"}}{{#percent  mcmStatistics.fileSize 10}}{{/percent}}'>
+                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar FS" style="width:{{#percent mcmStatistics.fileSize 10}}{{/percent}}" title='{{t  "common.remain"}}{{#percent mcmStatistics.fileSize 10}}{{/percent}}'>
+                                
+                            </div>
+                            <span class="show-text-left">
+                                <em></em>
+                            </span>
+                            <span class="show-text-right">
+                                <em>Total: 10G</em>
+                            </span>
+                        </div>
+                    </div>
+                </div><div class="row clearfix">
+                    <div class="col-md-3">
+                        <label class="mcm-info-label">{{t "apiAna.dataTransfer"}}<!-- Data Transfer --></label>
+                    </div>
+                    <div class="col-md-9">
+                        <div id="uploadModule-i" class="progress" title='{{t "common.remain"}}{{#percent
+ mcmStatistics.trafficSize 10}}{{/percent}}'>
+                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar DT" style="width:{{#percent mcmStatistics.trafficSize 10}}{{/percent}};" title='{{t "common.remain"}}{{#percent mcmStatistics.trafficSize 10}}{{/percent}}'>
+                                
+                            </div>
+                            <span class="show-text-left">
+                                <em></em>
+                            </span>
+                            <span class="show-text-right">
+                                <em>Total: 20G</em>
+                            </span>
+                        </div>
+                    </div>
+                </div><div class="row clearfix">
+                    <div class="col-md-3">
+                        <label class="mcm-info-label">{{t "apiAna.apiReq"}}<!-- API Requests --></label>
+                    </div>
+                    <div class="col-md-9">
+                        <div id="uploadModule-i" class="progress {{#or mcmStatistics.serverdAll mcmStatistics.failedAll}}dropped{{/or}}" title="Dropped:{{mcmStatistics.failedAll}}">
+                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar AR" style="width:{{#percent_2 mcmStatistics.serverdAll mcmStatistics.failedAll}}{{/percent_2}};" title="Served: {{mcmStatistics.serverdAll}}">
+                                
+                            </div>
+                            <span class="show-text-left">
+                                <em>Served: {{mcmStatistics.serverdAll}}</em>
+                            </span>
+                            <span class="show-text-right">
+                                <em>Dropped: {{mcmStatistics.failedAll}}</em>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                {{else}}
+                <div class="row clearfix" style="margin-top:14px;">
+                    <div class="col-md-3">
+                        <label class="mcm-info-label">{{t "apiAna.dataBase"}}<!-- Datebase --></label>
+                    </div>
+                    <div class="col-md-9">
+                        <div id="uploadModule-i" class="progress" title='{{t "common.mcmClose"}}'>
+                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar DB" style="width:100%;" title='{{t "common.mcmClose"}}'>
+                                
+                            </div>
+                            <span class="show-text-left">
+                                <em></em>
+                            </span>
+                            <span class="show-text-right">
+                                <em>Total: 10G</em>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-3">
+                        <label class="mcm-info-label">{{t "apiAna.fileStorage"}}<!-- File Storage --></label>
+                    </div>
+                    <div class="col-md-9">
+                        <div id="uploadModule-i" class="progress" title='{{t "common.mcmClose"}}'>
+                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar FS" style="width:100%;" title='{{t "common.mcmClose"}}'>
+                                
+                            </div>
+                            <span class="show-text-left">
+                                <em></em>
+                            </span>
+                            <span class="show-text-right">
+                                <em>Total: 10G</em>
+                            </span>
+                        </div>
+                    </div>
+                </div><div class="row clearfix">
+                    <div class="col-md-3">
+                        <label class="mcm-info-label">{{t "apiAna.dataTransfer"}}<!-- Data Transfer --></label>
+                    </div>
+                    <div class="col-md-9">
+                        <div id="uploadModule-i" class="progress" title='{{t "common.mcmClose"}}'>
+                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar DT" style="width:100%;" title='{{t "common.mcmClose"}}'>
+                                
+                            </div>
+                            <span class="show-text-left">
+                                <em></em>
+                            </span>
+                            <span class="show-text-right">
+                                <em>Total: 20G</em>
+                            </span>
+                        </div>
+                    </div>
+                </div><div class="row clearfix">
+                    <div class="col-md-3">
+                        <label class="mcm-info-label">{{t "apiAna.apiReq"}}<!-- API Requests --></label>
+                    </div>
+                    <div class="col-md-9">
+                        <div id="uploadModule-i" class="progress" title='{{t "common.mcmClose"}}'>
+                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar AR" style="width:0%;" title='{{t "common.mcmClose"}}'>
+                                
+                            </div>
+                            <span class="show-text-left">
+                                <em>Served: 0</em>
+                            </span>
+                            <span class="show-text-right">
+                                <em>Dropped: 0</em>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                {{/eq}}
+                <!-- \{{else}} -->
+<!--                 <div class="ver-info clearfix">
+                    <div class="pull-left">
+                        尚未开启数据服务
+                    </div>
+                </div> -->
+                <!-- \{{/if}} -->
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6" style="padding:0">
+        <div class="col-md-8 publish">
+            <div class="section">
+                <header class="clearfix">
+                    <div class="pull-left">
+                        <span class="title" >{{t "projectInfo.updated"}}</span><span class="ver">
+                            <!-- v1.2 -->
+                            {{#if dp.version}}
+                                v{{dp.version}}
+                            {{/if}}
+                        </span>
+                    </div>
+                    <span class="pull-right">
+                        <span>
+                            {{#if dp.time}}
+                                {{#formatDate dp.time}}
+                                {{/formatDate}}
+                            {{else}}
+
+                            {{/if}}
+                            <!-- 2014年3月4日 -->
+                        </span>
+                        <a href="#" class="code">
+                        </a>
+                    </span>
+                </header>
+                <div class="ver-info clearfix">
+                    <div class="pull-left">
+                        {{#if dp.version}}
+                        <span class="author">
+                            {{#if dp.userName}}
+                                {{dp.userName}}
+                            {{/if}}
+                        </span>
+                        {{else}}
+                            {{t "appInfo.noVersion"}}
+                        {{/if}}
+                    </div>
+                    <div class="pull-right">
+                        {{#if dp.platform}}
+                        <span><span>{{t "projectInfo.platform"}}</span>:
+                        {{/if}}
+                        
+                         <!-- 新版本 -->
+                            {{#eq dp.platform 1}}
+                                <em class="ios">iOS</em>
+                            {{/eq}}
+                            {{#eq dp.platform 2}}
+                                <em class="android">android</em>
+                            {{/eq}}
+                            {{#eq dp.platform 3}}
+                                widget
+                            {{/eq}}
+                            <!-- <em class="android">iOS</em> -->
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 update">
+            <div class="section">
+                <a href="/version">{{t "projectInfo.update"}}</a>
+            </div>
+        </div>
+        <div class="col-md-12 bottom">
+            <div id="overviewMemberPanel" class="panel clearfix member-panel">
+                {{#each members}}
+                {{#if userName}}
+                <div class="member-container col-sm-3">
+                    {{#if icon2}}
+                    <img src="{{icon2}}" alt='{{t "member.icon"}}' class="member-icon">
+                    {{else}}
+                    <img src="/img/favicon.png" alt='{{t "member.icon"}}' class="member-icon">
+                    {{/if}}
+                    {{#if userName}}<span class="member-name">{{userName}}</span>{{else}}<span class="member-name pending">{{t "member.pending"}}</span>{{/if}}
+                    
+                    {{#if loginTime}}
+                    <label class="member-loginTime">
+                    {{#formatDate loginTime}}
+                    {{/formatDate}}
+                    &nbsp;{{t "common.login"}}</label>
+                    {{else}}
+                    {{/if}}
+                    
+                </div>
+                {{/if}}
+                {{/each}}
+            </div>
+            <span id="overviewMemberPanel-btn" class="arr-b arr-b-ver" style="cursor:pointer;"></span>
+        </div>
+    </div>
+    
+</div>
+
+<!-- {{#each entries}}
+   <p>
+      <a href="/article/{{id}}">{{title}}</a><br/>
+      Published: {{published}}
+   </p>
+{{/each}} -->
