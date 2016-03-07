@@ -1,10 +1,10 @@
 {
-    music:{
-        
+    "music":{
+           "list": [],
+           "category":[]
     },
-    ablum: {
-        
-        
-        
+    "ablum": {
+           "list": [],
+           "category":[]
     }
 }
