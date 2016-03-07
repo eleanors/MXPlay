@@ -12,7 +12,7 @@
     },
     "account": {
         
-           "login": "登录"，
+           "login": "登录",
            "registe": "注册",
            "loginOut": "退出"
     }
