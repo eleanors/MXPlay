@@ -1,4 +1,7 @@
 {
+    "app": {
+           "name": "MXPlay"
+    },
     "music":{
            "list": [],
            "category":[]
@@ -6,5 +9,11 @@
     "ablum": {
            "list": [],
            "category":[]
+    },
+    "account": {
+        
+           "login": "signin"，
+           "registe": "signup",
+           "loginOut": "exit"
     }
 }
