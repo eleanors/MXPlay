@@ -19,7 +19,7 @@ define(['require', 'exports', 'module', 'request', '../module/helper', './nodeCo
                 var hostname = config.host;
 
                 var reqUrl = hostname + '/mxplay/data/getModule.json?appId=' + appid + '&startNum=0&size=32&platform=-1&type=7&timepicker=' + new Date().getTime();
-                var options = {
+                var options = { 
                         url: reqUrl,
                         json: true,
                         headers: {}
